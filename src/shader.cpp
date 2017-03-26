@@ -1,5 +1,8 @@
 #include "shader.h"
 
+Shader::Shader(){
+
+}
 
 GLuint Shader::CreateShader(const string& text, GLenum shaderType){
     GLuint shader = glCreateShader(shaderType);
@@ -67,6 +70,27 @@ void Shader::CheckShaderError(GLuint shader, GLuint flag, bool isProgram, const 
 }
 
 Shader::Shader(const string& filename){
+    m_program = glCreateProgram();
+    m_shaders[0] = CreateShader(LoadShader(filename + ".vs"), GL_VERTEX_SHADER);
+    m_shaders[1] = CreateShader(LoadShader(filename + ".fs"), GL_FRAGMENT_SHADER);
+
+    for(unsigned int i = 0;i<NUM_SHADERS; i++){
+        glAttachShader(m_program, m_shaders[i]);
+    }
+
+    glBindAttribLocation(m_program, 0,"position");
+    glBindAttribLocation(m_program, 1,"texCoord");
+
+    glLinkProgram(m_program);
+    CheckShaderError(m_program, GL_LINK_STATUS, true, "Error: Program linking failed!");
+
+    glValidateProgram(m_program);
+    CheckShaderError(m_program, GL_VALIDATE_STATUS, true, "Error: Program validation failed!");
+
+    m_uniforms[TRANSFORM_U] = glGetUniformLocation(m_program,"transform");
+}
+
+void Shader::init(const string& filename){
     m_program = glCreateProgram();
     m_shaders[0] = CreateShader(LoadShader(filename + ".vs"), GL_VERTEX_SHADER);
     m_shaders[1] = CreateShader(LoadShader(filename + ".fs"), GL_FRAGMENT_SHADER);

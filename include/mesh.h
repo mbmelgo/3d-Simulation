@@ -32,18 +32,17 @@ class Vertex{
 class Mesh
 {
     public:
+        Mesh();
         Mesh(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices);
         Mesh(const string& fileName);
         virtual ~Mesh();
 
         void Draw();
+        void init(const string& fileName);
 
     protected:
 
     private:
-        Mesh(const Mesh& other){};
-        void operator=(const Mesh& other){};
-
         void InitMesh(const IndexedModel& model);
 
         enum{

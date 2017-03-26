@@ -14,17 +14,16 @@ using namespace std;
 class Texture
 {
     public:
+        Texture();
         Texture(const string& fileName);
         virtual ~Texture();
 
         void Bind(unsigned int unit);
+        void init(const string& filename);
 
     protected:
 
     private:
-        Texture(const Texture& other){};
-        void operator=(const Texture& other){};
-
         GLuint m_texture;
 };
 

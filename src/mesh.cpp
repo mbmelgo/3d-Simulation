@@ -31,6 +31,16 @@ Mesh::Mesh(const string& fileName){
     InitMesh(model);
 }
 
+Mesh::Mesh(){
+
+}
+
+void Mesh::init(const string& fileName){
+    IndexedModel model = OBJModel(fileName).ToIndexedModel();
+
+    InitMesh(model);
+}
+
 Mesh::Mesh(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices){
     IndexedModel model;
 

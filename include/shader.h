@@ -15,18 +15,18 @@ using namespace std;
 class Shader
 {
     public:
+        Shader();
         Shader(const string& filename);
         virtual ~Shader();
 
         void Bind();
         void Update(const Transform& transform, const Camera& camera);
+        void init(const string& filename);
 
     protected:
 
     private:
         static const unsigned int NUM_SHADERS = 2;
-        Shader(const Shader& other){};
-        void operator=(const Shader& other){};
 
         enum {
             TRANSFORM_U,
