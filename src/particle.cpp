@@ -1,5 +1,9 @@
 #include "particle.h"
 
+Particle::Particle(){
+    //dtor
+}
+
 Particle::Particle(const string& meshFileName, const string& shaderFileName, const string& textureFileName){
     m_mesh.init(meshFileName);
     m_shader.init(shaderFileName);
@@ -8,6 +12,12 @@ Particle::Particle(const string& meshFileName, const string& shaderFileName, con
 
 Particle::~Particle(){
     //dtor
+}
+
+void Particle::init(const string& meshFileName, const string& shaderFileName, const string& textureFileName){
+    m_mesh.init(meshFileName);
+    m_shader.init(shaderFileName);
+    m_texture.init(textureFileName);
 }
 
 void Particle::draw(Camera camera){

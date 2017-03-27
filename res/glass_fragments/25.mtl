@@ -1,0 +1,19 @@
+# Blender MTL File: 'glass.blend'
+# Material Count: 2
+
+newmtl None
+Ns 0
+Ka 0.000000 0.000000 0.000000
+Kd 0.8 0.8 0.8
+Ks 0.8 0.8 0.8
+d 1
+illum 2
+map_Kd E:\Vincent\4thYear\2ND SEM\CMSC_162\FINAL_PROJECT\Simulation\res\skin.jpg
+
+newmtl None_NONE
+Ns 0
+Ka 0.000000 0.000000 0.000000
+Kd 0.8 0.8 0.8
+Ks 0.8 0.8 0.8
+d 1
+illum 2

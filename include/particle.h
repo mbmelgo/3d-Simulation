@@ -15,6 +15,7 @@ using namespace std;
 class Particle
 {
     public:
+        Particle();
         Particle(const string& meshFileName, const string& shaderFileName, const string& textureFileName);
         virtual ~Particle();
 
@@ -24,6 +25,7 @@ class Particle
         Texture m_texture;
         Transform m_transform;
 
+        void init(const string& meshFileName, const string& shaderFileName, const string& textureFileName);
         void draw(Camera camera);
         void setPosition(glm::vec3 pos);
         void translate(glm::vec3 pos);
