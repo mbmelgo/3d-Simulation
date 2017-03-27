@@ -1,5 +1,7 @@
 #include <iostream>
 #include <GL/glew.h>
+#include <string>
+#include <sstream>
 
 #include "display.h"
 #include "camera.h"
@@ -8,9 +10,24 @@
 #define WIDTH 800
 #define HEIGHT 600
 
+using namespace std;
+
+//void generateGlassParts(){
+//    for(int i=1;i<102;i++){
+//        string filename = "E:/Vincent/4thYear/2ND SEM/CMSC_162/FINAL_PROJECT/Simulation/res/glass_model/";
+//        stringstream convert;
+//        convert << i;
+//        filename.append(convert.str());
+//        filename.append(".obj");
+//        printf("%d\n",i);
+//        Particle glass(filename,
+//                      "E:/Vincent/4thYear/2ND SEM/CMSC_162/FINAL_PROJECT/Simulation/res/basicShader",
+//                      "E:/Vincent/4thYear/2ND SEM/CMSC_162/FINAL_PROJECT/Simulation/res/skin.jpg");
+//    }
+//}
+
 int main(){
     Display display(WIDTH,HEIGHT,"Simulation");
-
     //Mesh mesh(vertices, sizeof(vertices)/sizeof(vertices[0]), indices, sizeof(indices)/sizeof(indices[0]));
     Particle bullet("E:/Vincent/4thYear/2ND SEM/CMSC_162/FINAL_PROJECT/Simulation/res/bullet.obj",
                       "E:/Vincent/4thYear/2ND SEM/CMSC_162/FINAL_PROJECT/Simulation/res/basicShader",
@@ -31,9 +48,7 @@ int main(){
 
         bullet.draw(camera);
         glass.draw(camera);
-        //p.setScale(glm::vec3(cosCounter, cosCounter, cosCounter));
         bullet.translate(glm::vec3(counter,0.0,0.0));
-        //p.setRotation(glm::vec3(0.0,counter*2,0.0));
         display.update();
         counter -= 0.000001f;
         if(counter < -0.003){
