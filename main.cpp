@@ -29,7 +29,7 @@ void generateGlassParts(){
         } else {
             glass[i].scale(glm::vec3(-0.1,-0.1,-0.1));
         }
-        glass[i].rotate(glm::vec3(0.0,0.7,0.0));
+//        glass[i].rotate(glm::vec3(0.0,0.7,0.0));
         glass[i].translate(glm::vec3(-0.5,0.0,0.0));
     }
 }
@@ -48,9 +48,10 @@ int main(){
 
     while(!display.isClosed()){
         display.Clear(0.0f, 0.15f, 0.3f, 1.0f);
+        camera.setCamera(display.getCameraPosition(),display.getCameraFront());
 
         bullet.draw(camera);
-//        bullet.translate(glm::vec3(counter,0.0,0.0));
+        bullet.translate(glm::vec3((counter * display.getDeltaTime()),0.0,0.0));
 
         for(int i=1;i<26;i++){
             glass[i].draw(camera);
@@ -58,8 +59,8 @@ int main(){
 
 
         display.update();
-        counter -= 0.000001f;
-        if(counter < -0.003){
+        counter -= 0.01f;
+        if(counter < -15){
             counter = 0.0f;
             bullet.setPosition(glm::vec3(1.5,0.0,0.0));
         }

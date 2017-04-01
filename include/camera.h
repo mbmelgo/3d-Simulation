@@ -4,6 +4,8 @@
 #include <glm/glm.hpp>
 #include <glm/gtx/transform.hpp>
 
+#include "transform.h"
+
 class Camera
 {
     public:
@@ -16,6 +18,11 @@ class Camera
 
         inline glm::mat4 getViewProjection() const{
             return m_perspective * glm::lookAt(m_position, m_position + m_forward, m_up);
+        }
+
+        void setCamera(const glm::vec3& pos,const glm::vec3& frwrd){
+            m_position = pos;
+            m_forward = frwrd;
         }
 
     protected:
