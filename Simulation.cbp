@@ -45,20 +45,20 @@
 			<Add library="gdi32" />
 			<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/lib" />
 		</Linker>
+		<Unit filename="include/bullet.h" />
 		<Unit filename="include/camera.h" />
 		<Unit filename="include/display.h" />
 		<Unit filename="include/mesh.h" />
 		<Unit filename="include/obj_loader.h" />
-		<Unit filename="include/particle.h" />
 		<Unit filename="include/shader.h" />
 		<Unit filename="include/stb_image.h" />
 		<Unit filename="include/texture.h" />
 		<Unit filename="include/transform.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/bullet.cpp" />
 		<Unit filename="src/display.cpp" />
 		<Unit filename="src/mesh.cpp" />
 		<Unit filename="src/obj_loader.cpp" />
-		<Unit filename="src/particle.cpp" />
 		<Unit filename="src/shader.cpp" />
 		<Unit filename="src/stb_image.c">
 			<Option compilerVar="CC" />
