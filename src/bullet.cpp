@@ -14,57 +14,21 @@ Bullet::~Bullet(){
     //dtor
 }
 
-void Bullet::init(const string& meshFileName, const string& shaderFileName, const string& textureFileName){
-    m_mesh.init(meshFileName);
-    m_shader.init(shaderFileName);
-    m_texture.init(textureFileName);
+void Bullet::setTarget(glm::vec3 position){
+    m_target = position;
 }
 
-void Bullet::translate(){
-    m_transform.setPos(m_transform.getPos() + m_velocity);
-    m_location = m_transform.getPos();
+glm::vec3 Bullet::getTarget(){
+    return m_target;
 }
 
-void Bullet::applyForce(glm::vec3 force){
-    float x = force.x / m_mass;
-    float y = force.y / m_mass;
-    float z = force.z / m_mass;
-    glm::vec3 f(x,y,z);
-    m_acceleration = m_acceleration + f;
+void Bullet::setPosition(glm::vec3 position){
+    m_transform.setPos(position);
+    m_position = position;
 }
 
-void Bullet::checkEdges(){
-
-}
-
-void Bullet::draw(Camera camera){
-    m_shader.Bind();
-    m_texture.Bind(0);
-    m_shader.Update(m_transform, camera);
-    m_velocity = m_velocity + m_acceleration;
-    translate();
-    checkEdges();
-    m_mesh.Draw();
-}
-
-void Bullet::setPosition(glm::vec3 pos){
-    m_transform.setPos(pos);
-}
-
-void Bullet::setRotation(glm::vec3 pos){
-    m_transform.setRot(pos);
-}
-
-void Bullet::rotate(glm::vec3 pos){
-    m_transform.setRot(m_transform.getRot() + pos);
-}
-
-void Bullet::setScale(glm::vec3 pos){
-    m_transform.setScale(pos);
-}
-
-void Bullet::scale(glm::vec3 pos){
-    m_transform.setScale(m_transform.getScale() + pos);
+glm::vec3 Bullet::getPosition(){
+    return m_position;
 }
 
 void Bullet::setVelocity(glm::vec3 velocity){
@@ -75,15 +39,6 @@ glm::vec3 Bullet::getVelocity(){
     return m_velocity;
 }
 
-void Bullet::setLocation(glm::vec3 pos){
-    m_location = pos;
-    setPosition(pos);
-}
-
-glm::vec3 Bullet::getLocation(){
-    return m_location;
-}
-
 void Bullet::setAcceleration(glm::vec3 acceleration){
     m_acceleration = acceleration;
 }
@@ -92,11 +47,49 @@ glm::vec3 Bullet::getAcceleration(){
     return m_acceleration;
 }
 
-void Bullet::setMass(float mass){
-    m_mass = mass;
+void Bullet::setAngle(float angle){
+    m_angle = angle;
 }
 
-float Bullet::getMass(){
-    return m_mass;
+float Bullet::getAngle(){
+    return m_angle;
 }
 
+
+void Bullet::applyForce(glm::vec3 force){
+    force = force / m_mass;
+    m_acceleration = m_acceleration + force;
+}
+
+void Bullet::init(const string& meshFileName, const string& shaderFileName, const string& textureFileName){
+    m_mesh.init(meshFileName);
+    m_shader.init(shaderFileName);
+    m_texture.init(textureFileName);
+
+    setPosition(glm::vec3(15.0,0.0,0.0));
+    setVelocity(glm::vec3(0.0,0.0,0.0));
+    setAcceleration(glm::vec3(0.0,0.0,0.0));
+}
+
+void Bullet::translate(){
+    m_transform.setPos(m_position);
+}
+
+void Bullet::rotate(){
+
+}
+
+void Bullet::draw(Camera camera){
+    m_shader.Bind();
+    m_texture.Bind(0);
+    m_shader.Update(m_transform, camera);
+
+    m_velocity = m_velocity + m_acceleration;
+    m_position = m_position + m_velocity;
+
+    m_angle = atan(m_velocity.y/m_velocity.x);
+    translate();
+    rotate();
+    m_mesh.Draw();
+    m_acceleration = m_acceleration * 0.0f;
+}
