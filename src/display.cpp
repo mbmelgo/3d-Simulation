@@ -49,6 +49,22 @@ void Display::doMovements(){
     if (m_keys[SDLK_s] && !m_firstKey){
         m_cameraPos -= m_deltaTime * m_cameraSpeed * m_cameraFront;
     }
+    if(m_cameraPos.x > m_leftBoundary){
+        m_cameraPos.x = m_leftBoundary;
+    } else if(m_cameraPos.x < m_rightBoundary){
+        m_cameraPos.x = m_rightBoundary;
+    }
+    if(m_cameraPos.y > m_upperBoundary){
+        m_cameraPos.y = m_upperBoundary;
+    } else if(m_cameraPos.y < m_lowerBoundary){
+        m_cameraPos.y = m_lowerBoundary;
+    }
+    if(m_cameraPos.z > m_frontBoundary){
+        m_cameraPos.z = m_frontBoundary;
+    } else if(m_cameraPos.z < m_backBoundary){
+        m_cameraPos.z = m_backBoundary;
+    }
+//    printf("%f,%f,%f\n",m_cameraPos.x,m_cameraPos.y,m_cameraPos.z);
 }
 
 void Display::update(){
@@ -73,7 +89,8 @@ void Display::update(){
         } else if( e.type == SDL_MOUSEBUTTONDOWN){
             m_firstX =  e.button.x;
             m_firstY =  e.button.y;
-        } else if( e.type == SDL_MOUSEBUTTONUP){
+        }
+        else if( e.type == SDL_MOUSEBUTTONUP){
             m_lastX =  e.button.x;
             m_lastY =  e.button.y;
 

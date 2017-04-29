@@ -3,6 +3,7 @@
 
 #include <string>
 #include <glm/glm.hpp>
+#include<glm/gtc/quaternion.hpp>
 
 #include "display.h"
 #include "shader.h"
@@ -37,6 +38,9 @@ class Bullet
         void setAngle(float angle);
         float getAngle();
 
+        void setRotation(glm::vec3 rotation);
+        glm::vec3 getRotation();
+
         void applyForce(glm::vec3 force);
 
     protected:
@@ -44,10 +48,16 @@ class Bullet
     private:
         glm::vec3 m_target;
         glm::vec3 m_position;
+        glm::vec3 m_nextPosition;
+        glm::vec3 m_rotation;
         glm::vec3 m_velocity;
-        float m_angle = 0;
         glm::vec3 m_acceleration;
         float m_mass = 4.2; //grams
+        float m_lowerBoundary = -10.0;
+        float m_angleX = 0.0;
+        float m_angleY = 0.0;
+        float m_angleZ = 0.0;
+
 
         Mesh m_mesh;
         Shader m_shader;
@@ -55,7 +65,9 @@ class Bullet
         Transform m_transform;
 
         void translate();
+        void toEuler(glm::vec3 axis,float angle);
         void rotate();
+        void findAngle();
 };
 
 #endif // BULLET_H

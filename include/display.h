@@ -40,9 +40,9 @@ class Display
         float m_deltaTime = 0.0;
         float m_thisTime = 0.0;
         float m_lastTime = 0.0;
-        float m_cameraSpeed = 0.5f;
-        glm::vec3 m_cameraPos   = glm::vec3(0.0f, 0.0f,  -25.0f);
-        glm::vec3 m_cameraFront = glm::vec3(0.0f, 0.0f, 1.0f);
+        float m_cameraSpeed = 10.0f;
+        glm::vec3 m_cameraPos   = glm::vec3(20.0f, 0.0f, 0.0f);
+        glm::vec3 m_cameraFront = glm::vec3(-1.0f, 0.0f, 0.0f);
         glm::vec3 m_cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f);
         bool m_keys[1024];
         float m_lastX;
@@ -54,6 +54,13 @@ class Display
         float m_sensitivity = 0.05;
         bool m_firstMouse = true;
         bool m_firstKey = true;
+
+        float m_lowerBoundary = -8.9;
+        float m_upperBoundary = 18.0;
+        float m_leftBoundary = 17.61;
+        float m_rightBoundary = -17.61;
+        float m_frontBoundary = 18.00;
+        float m_backBoundary = -18.00;
 };
 
 #endif // DISPLAY_H
