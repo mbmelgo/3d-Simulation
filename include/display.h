@@ -41,8 +41,8 @@ class Display
         float m_thisTime = 0.0;
         float m_lastTime = 0.0;
         float m_cameraSpeed = 10.0f;
-        glm::vec3 m_cameraPos   = glm::vec3(20.0f, 0.0f, 0.0f);
-        glm::vec3 m_cameraFront = glm::vec3(-1.0f, 0.0f, 0.0f);
+        glm::vec3 m_cameraPos   = glm::vec3(0.0f, 5.0f, 30.0f);
+        glm::vec3 m_cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
         glm::vec3 m_cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f);
         bool m_keys[1024];
         float m_lastX;
@@ -55,7 +55,7 @@ class Display
         bool m_firstMouse = true;
         bool m_firstKey = true;
 
-        float m_lowerBoundary = -8.9;
+        float m_lowerBoundary = 0.1;
         float m_upperBoundary = 18.0;
         float m_leftBoundary = 17.61;
         float m_rightBoundary = -17.61;

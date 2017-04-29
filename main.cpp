@@ -17,25 +17,19 @@
 using namespace std;
 
 
-string PATH = "E:/Vincent/4thYear/2ND SEM/CMSC_162/FINAL_PROJECT/";
+//string PATH = "E:/Vincent/4thYear/2ND SEM/CMSC_162/FINAL_PROJECT/Simulation/";
+string PATH = "C:/Users/MabelMelgo/Desktop/Vincent/CMSC162/3d-Simulation/";
 
 //Particle glass[25];
+float speedValue;
+float gravityValue = -9.8f;
+
 glm::vec3 gravity;
 glm::vec3 speed;
 Bullet bullet;
 Plane ground;
-Plane top;
-Plane leftSide;
-Plane rightSide;
-Plane backSide;
-Plane frontSide;
-glm::vec3 target(0.0,10.0,20.0);
 Camera camera(glm::vec3(0,0,5), 70.0f, (float)WIDTH/(float)HEIGHT, 0.01f, 1000.0f);
-float m_lowerBoundary = -10.0;
-
-glm::vec3 getPixelValue(glm::vec3 f){
-    return glm::vec3(f.x/1000000.00,f.y/1000000.00,f.z/1000000.00);
-}
+float lowerBoundary = 0.0;
 
 //void generateGlassParts(){
 //    for(int i=1;i<26;i++){
@@ -58,48 +52,28 @@ glm::vec3 getPixelValue(glm::vec3 f){
 //}
 
 void generateBullet(){
-    bullet.init(    PATH+"Simulation/res/obj_files/bullet.obj",
-                    PATH+"Simulation/res/shaders/basicShader",
-                    PATH+"Simulation/res/textures/bullet_skin.jpg");
-    bullet.setTarget(target);
-    speed = getPixelValue(glm::vec3(-9000.0,9000.0,0.0));
-    bullet.applyForce(speed);
+    bullet.init(    PATH+"res/obj_files/bullet.obj",
+                    PATH+"res/shaders/basicShader",
+                    PATH+"res/textures/bullet_skin.jpg");
+    bullet.setAngleXY(50.0);
+    bullet.setAngleXZ(0.0);
+    bullet.setLowerBoundary(lowerBoundary);
+    bullet.setSpeed(1.0);
+    bullet.setMass(10.0);
+    bullet.initBullet();
 }
 
 void generateBackground(){
-    top.init(   PATH+"Simulation/res/obj_files/plane.obj",
-                PATH+"Simulation/res/shaders/basicShader",
-                PATH+"Simulation/res/textures/plane_skin_3.jpg");
-    top.setPosition(glm::vec3(0.0,20.0,0.0));
-    ground.init(    PATH+"Simulation/res/obj_files/plane.obj",
-                    PATH+"Simulation/res/shaders/basicShader",
-                    PATH+"Simulation/res/textures/plane_skin.jpg");
-    ground.setPosition(glm::vec3(0.0,-10.0,0.0));
-    leftSide.init(  PATH+"Simulation/res/obj_files/plane_3.obj",
-                    PATH+"Simulation/res/shaders/basicShader",
-                    PATH+"Simulation/res/textures/plane_skin_2.jpeg");
-    leftSide.setPosition(glm::vec3(0.0,10.0,20.0));
-    rightSide.init( PATH+"Simulation/res/obj_files/plane_3.obj",
-                    PATH+"Simulation/res/shaders/basicShader",
-                    PATH+"Simulation/res/textures/plane_skin_2.jpeg");
-    rightSide.setPosition(glm::vec3(0.0,10.0,-20.0));
-    backSide.init( PATH+"Simulation/res/obj_files/plane_2.obj",
-                    PATH+"Simulation/res/shaders/basicShader",
-                    PATH+"Simulation/res/textures/plane_skin_2.jpeg");
-    backSide.setPosition(glm::vec3(20.0,10.0,0.0));
-
-    // CHANGE TO GLASS
-    frontSide.init(  PATH+"Simulation/res/obj_files/plane_2.obj",
-                    PATH+"Simulation/res/shaders/basicShader",
-                    PATH+"Simulation/res/textures/glass_skin.jpg");
-    frontSide.setPosition(glm::vec3(20.0,10.0,0.0));
-    frontSide.setPosition(glm::vec3(-20.0,10.0,0.0));
+    ground.init(    PATH+"res/obj_files/plane.obj",
+                    PATH+"res/shaders/basicShader",
+                    PATH+"res/textures/plane_skin.jpg");
+    ground.setPosition(glm::vec3(0.0,0.0,0.0));
 }
 
 void init(){
     generateBullet();
     generateBackground();
-    gravity = getPixelValue(glm::vec3(0.0,-0.98,0.0));
+    gravity = glm::vec3(0.0,gravityValue,0.0);
 }
 
 int main(){
@@ -119,11 +93,6 @@ int main(){
 
 //      WALLS
         ground.draw(camera);
-        top.draw(camera);
-        leftSide.draw(camera);
-        rightSide.draw(camera);
-        backSide.draw(camera);
-        frontSide.draw(camera);
 
         display.update();
     }

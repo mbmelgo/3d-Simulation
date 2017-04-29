@@ -49,21 +49,21 @@ void Display::doMovements(){
     if (m_keys[SDLK_s] && !m_firstKey){
         m_cameraPos -= m_deltaTime * m_cameraSpeed * m_cameraFront;
     }
-    if(m_cameraPos.x > m_leftBoundary){
-        m_cameraPos.x = m_leftBoundary;
-    } else if(m_cameraPos.x < m_rightBoundary){
-        m_cameraPos.x = m_rightBoundary;
-    }
-    if(m_cameraPos.y > m_upperBoundary){
-        m_cameraPos.y = m_upperBoundary;
-    } else if(m_cameraPos.y < m_lowerBoundary){
-        m_cameraPos.y = m_lowerBoundary;
-    }
-    if(m_cameraPos.z > m_frontBoundary){
-        m_cameraPos.z = m_frontBoundary;
-    } else if(m_cameraPos.z < m_backBoundary){
-        m_cameraPos.z = m_backBoundary;
-    }
+//    if(m_cameraPos.x > m_leftBoundary){
+//        m_cameraPos.x = m_leftBoundary;
+//    } else if(m_cameraPos.x < m_rightBoundary){
+//        m_cameraPos.x = m_rightBoundary;
+//    }
+//    if(m_cameraPos.y > m_upperBoundary){
+//        m_cameraPos.y = m_upperBoundary;
+//    } else if(m_cameraPos.y < m_lowerBoundary){
+//        m_cameraPos.y = m_lowerBoundary;
+//    }
+//    if(m_cameraPos.z > m_frontBoundary){
+//        m_cameraPos.z = m_frontBoundary;
+//    } else if(m_cameraPos.z < m_backBoundary){
+//        m_cameraPos.z = m_backBoundary;
+//    }
 //    printf("%f,%f,%f\n",m_cameraPos.x,m_cameraPos.y,m_cameraPos.z);
 }
 
@@ -115,9 +115,9 @@ void Display::update(){
                 m_pitch = -89.0f;
 
             glm::vec3 frnt;
-            frnt.x = -1.0 * cos(glm::radians(m_yaw)) * cos(glm::radians(m_pitch));
+            frnt.x = cos(glm::radians(m_yaw)) * cos(glm::radians(m_pitch));
             frnt.y = sin(glm::radians(m_pitch));
-            frnt.z = -1.0 * sin(glm::radians(m_yaw)) * cos(glm::radians(m_pitch));
+            frnt.z = sin(glm::radians(m_yaw)) * cos(glm::radians(m_pitch));
             m_cameraFront = glm::normalize(frnt);
         }
     }

@@ -38,7 +38,6 @@
 		</Compiler>
 		<Linker>
 			<Add library="glew32s" />
-			<Add library="freeglut" />
 			<Add library="opengl32" />
 			<Add library="glu32" />
 			<Add library="winmm" />
