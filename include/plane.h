@@ -32,6 +32,8 @@ class Plane
         Transform m_transform;
 
         glm::vec3 m_position;
+
+        void drawCoordinates();
 };
 
 #endif // FLOOR_H

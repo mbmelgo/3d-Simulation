@@ -390,7 +390,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1469329178 c:\program files (x86)\codeblocks\mingw\include\gl\glew.h
+1469321017 c:\program files (x86)\codeblocks\mingw\include\gl\glew.h
 	<stddef.h>
 	<inttypes.h>
 	<stdint.h>
@@ -426,7 +426,7 @@
 	<string>
 	"obj_loader.h"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\glm.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\glm.hpp
 	"detail/_fixes.hpp"
 	<cmath>
 	<climits>
@@ -455,78 +455,86 @@
 	"vector_relational.hpp"
 	"integer.hpp"
 
-1483566163 c:\program files (x86)\codeblocks\mingw\include\glm\detail\_fixes.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\_fixes.hpp
 	<cmath>
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\fwd.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\fwd.hpp
 	"detail/type_int.hpp"
 	"detail/type_float.hpp"
 	"detail/type_vec.hpp"
 	"detail/type_mat.hpp"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_int.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_int.hpp
 	"setup.hpp"
 	<type_traits>
 	<cstdint>
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\setup.hpp
+1424013748 c:\program files (x86)\codeblocks\mingw\include\glm\detail\setup.hpp
 	<cassert>
 	<cstddef>
-	"../simd/platform.h"
+	<cuda.h>
+	<intrin.h>
+	<immintrin.h>
+	<immintrin.h>
+	<smmintrin.h>
+	<pmmintrin.h>
+	<emmintrin.h>
 
-1483566163 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_float.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_float.hpp
 	"setup.hpp"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec.hpp
 	"precision.hpp"
 	"type_int.hpp"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\precision.hpp
-	"setup.hpp"
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\precision.hpp
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat.hpp
 	"precision.hpp"
 
-1483566164 c:\program files (x86)\codeblocks\mingw\include\glm\vec2.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\vec2.hpp
 	"detail/type_vec2.hpp"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec2.hpp
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec2.hpp
 	"type_vec.hpp"
 	"_swizzle.hpp"
 	"_swizzle_func.hpp"
 	<cstddef>
 	"type_vec2.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\_swizzle.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\_swizzle.hpp
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\_swizzle_func.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\_swizzle_func.hpp
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec2.inl
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec2.inl
 
-1483566164 c:\program files (x86)\codeblocks\mingw\include\glm\vec3.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\vec3.hpp
 	"detail/type_vec3.hpp"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec3.hpp
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec3.hpp
 	"type_vec.hpp"
 	"_swizzle.hpp"
 	"_swizzle_func.hpp"
 	<cstddef>
 	"type_vec3.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec3.inl
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec3.inl
 
-1483566164 c:\program files (x86)\codeblocks\mingw\include\glm\vec4.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\vec4.hpp
 	"detail/type_vec4.hpp"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec4.hpp
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec4.hpp
+	"setup.hpp"
 	"type_vec.hpp"
 	"_swizzle.hpp"
 	"_swizzle_func.hpp"
 	<cstddef>
 	"type_vec4.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec4.inl
-	"type_vec4_simd.inl"
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec4.inl
+	"type_vec4_sse2.inl"
+	"type_vec4_avx.inl"
+	"type_vec4_avx2.inl"
 
 1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec4_sse2.inl
 
@@ -534,10 +542,10 @@
 
 1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec4_avx2.inl
 
-1485083547 c:\program files (x86)\codeblocks\mingw\include\glm\mat2x2.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\mat2x2.hpp
 	"detail/type_mat2x2.hpp"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat2x2.hpp
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat2x2.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_mat.hpp"
@@ -545,13 +553,12 @@
 	<cstddef>
 	"type_mat2x2.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat2x2.inl
-	"func_matrix.hpp"
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat2x2.inl
 
-1485083547 c:\program files (x86)\codeblocks\mingw\include\glm\mat2x3.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\mat2x3.hpp
 	"detail/type_mat2x3.hpp"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat2x3.hpp
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat2x3.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
@@ -560,12 +567,12 @@
 	<cstddef>
 	"type_mat2x3.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat2x3.inl
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat2x3.inl
 
-1485083547 c:\program files (x86)\codeblocks\mingw\include\glm\mat2x4.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\mat2x4.hpp
 	"detail/type_mat2x4.hpp"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat2x4.hpp
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat2x4.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec4.hpp"
@@ -574,12 +581,12 @@
 	<cstddef>
 	"type_mat2x4.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat2x4.inl
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat2x4.inl
 
-1485083547 c:\program files (x86)\codeblocks\mingw\include\glm\mat3x2.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\mat3x2.hpp
 	"detail/type_mat3x2.hpp"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat3x2.hpp
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat3x2.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
@@ -588,12 +595,12 @@
 	<cstddef>
 	"type_mat3x2.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat3x2.inl
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat3x2.inl
 
-1485083547 c:\program files (x86)\codeblocks\mingw\include\glm\mat3x3.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\mat3x3.hpp
 	"detail/type_mat3x3.hpp"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat3x3.hpp
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat3x3.hpp
 	"../fwd.hpp"
 	"type_vec3.hpp"
 	"type_mat.hpp"
@@ -601,13 +608,12 @@
 	<cstddef>
 	"type_mat3x3.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat3x3.inl
-	"func_matrix.hpp"
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat3x3.inl
 
-1485083547 c:\program files (x86)\codeblocks\mingw\include\glm\mat3x4.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\mat3x4.hpp
 	"detail/type_mat3x4.hpp"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat3x4.hpp
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat3x4.hpp
 	"../fwd.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
@@ -616,12 +622,12 @@
 	<cstddef>
 	"type_mat3x4.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat3x4.inl
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat3x4.inl
 
-1485083547 c:\program files (x86)\codeblocks\mingw\include\glm\mat4x2.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\mat4x2.hpp
 	"detail/type_mat4x2.hpp"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat4x2.hpp
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat4x2.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec4.hpp"
@@ -630,12 +636,12 @@
 	<cstddef>
 	"type_mat4x2.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat4x2.inl
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat4x2.inl
 
-1485083547 c:\program files (x86)\codeblocks\mingw\include\glm\mat4x3.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\mat4x3.hpp
 	"detail/type_mat4x3.hpp"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat4x3.hpp
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat4x3.hpp
 	"../fwd.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
@@ -644,12 +650,12 @@
 	<cstddef>
 	"type_mat4x3.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat4x3.inl
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat4x3.inl
 
-1485083547 c:\program files (x86)\codeblocks\mingw\include\glm\mat4x4.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\mat4x4.hpp
 	"detail/type_mat4x4.hpp"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat4x4.hpp
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat4x4.hpp
 	"../fwd.hpp"
 	"type_vec4.hpp"
 	"type_mat.hpp"
@@ -657,31 +663,28 @@
 	<cstddef>
 	"type_mat4x4.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat4x4.inl
-	"func_matrix.hpp"
-	"type_mat4x4_simd.inl"
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat4x4.inl
 
-1483566164 c:\program files (x86)\codeblocks\mingw\include\glm\trigonometric.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\trigonometric.hpp
 	"detail/func_trigonometric.hpp"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_trigonometric.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_trigonometric.hpp
 	"setup.hpp"
 	"precision.hpp"
 	"func_trigonometric.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_trigonometric.inl
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_trigonometric.inl
 	"_vectorize.hpp"
 	<cmath>
 	<limits>
-	"func_trigonometric_simd.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\_vectorize.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\_vectorize.hpp
 	"type_vec1.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec1.hpp
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec1.hpp
 	"../fwd.hpp"
 	"type_vec.hpp"
 	"_swizzle.hpp"
@@ -689,12 +692,12 @@
 	<cstddef>
 	"type_vec1.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec1.inl
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec1.inl
 
-1483566163 c:\program files (x86)\codeblocks\mingw\include\glm\exponential.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\exponential.hpp
 	"detail/func_exponential.hpp"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_exponential.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_exponential.hpp
 	"type_vec1.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
@@ -702,81 +705,76 @@
 	<cmath>
 	"func_exponential.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_exponential.inl
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_exponential.inl
 	"func_vector_relational.hpp"
 	"_vectorize.hpp"
 	<limits>
 	<cmath>
 	<cassert>
-	"func_exponential_simd.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_vector_relational.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_vector_relational.hpp
 	"precision.hpp"
 	"setup.hpp"
 	"func_vector_relational.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_vector_relational.inl
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_vector_relational.inl
 	<limits>
-	"func_vector_relational_simd.inl"
 
-1483566163 c:\program files (x86)\codeblocks\mingw\include\glm\common.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\common.hpp
 	"detail/func_common.hpp"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_common.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_common.hpp
 	"setup.hpp"
 	"precision.hpp"
 	"type_int.hpp"
 	"_fixes.hpp"
 	"func_common.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_common.inl
+1423994623 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_common.inl
 	"func_vector_relational.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
 	"_vectorize.hpp"
 	<limits>
-	"func_common_simd.inl"
 
-1483566163 c:\program files (x86)\codeblocks\mingw\include\glm\packing.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\packing.hpp
 	"detail/func_packing.hpp"
 
-1483566163 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_packing.hpp
+1423516826 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_packing.hpp
 	"type_vec2.hpp"
 	"type_vec4.hpp"
 	"func_packing.inl"
 
-1483566163 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_packing.inl
+1423516826 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_packing.inl
 	"func_common.hpp"
 	"type_half.hpp"
 	"../fwd.hpp"
-	"func_packing_simd.inl"
 
-1483566163 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_half.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_half.hpp
 	"setup.hpp"
 	"type_half.inl"
 
-1483566163 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_half.inl
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_half.inl
 
-1483566163 c:\program files (x86)\codeblocks\mingw\include\glm\geometric.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\geometric.hpp
 	"detail/func_geometric.hpp"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_geometric.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_geometric.hpp
 	"type_vec3.hpp"
 	"func_geometric.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_geometric.inl
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_geometric.inl
 	"func_exponential.hpp"
 	"func_common.hpp"
 	"type_vec2.hpp"
 	"type_vec4.hpp"
 	"type_float.hpp"
-	"func_geometric_simd.inl"
 
-1483566163 c:\program files (x86)\codeblocks\mingw\include\glm\matrix.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\matrix.hpp
 	"detail/func_matrix.hpp"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_matrix.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_matrix.hpp
 	"../detail/precision.hpp"
 	"../detail/setup.hpp"
 	"../detail/type_mat.hpp"
@@ -794,25 +792,24 @@
 	"../mat4x4.hpp"
 	"func_matrix.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_matrix.inl
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_matrix.inl
 	"../geometric.hpp"
 	<limits>
-	"func_matrix_simd.inl"
 
-1483566164 c:\program files (x86)\codeblocks\mingw\include\glm\vector_relational.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\vector_relational.hpp
 	"detail/func_vector_relational.hpp"
 
-1483566163 c:\program files (x86)\codeblocks\mingw\include\glm\integer.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\integer.hpp
 	"detail/func_integer.hpp"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_integer.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_integer.hpp
 	"setup.hpp"
 	"precision.hpp"
 	"func_common.hpp"
 	"func_vector_relational.hpp"
 	"func_integer.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_integer.inl
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_integer.inl
 	"type_vec2.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
@@ -820,7 +817,6 @@
 	"_vectorize.hpp"
 	<intrin.h>
 	<limits>
-	"func_integer_simd.inl"
 
 1490522333 source:c:\users\marko\desktop\simulation\src\mesh.cpp
 	"mesh.h"
@@ -855,12 +851,12 @@
 	<glm/glm.hpp>
 	<glm/gtx/transform.hpp>
 
-1485083547 c:\program files (x86)\codeblocks\mingw\include\glm\gtx\transform.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\gtx\transform.hpp
 	"../glm.hpp"
 	"../gtc/matrix_transform.hpp"
 	"transform.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\gtc\matrix_transform.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\gtc\matrix_transform.hpp
 	"../mat4x4.hpp"
 	"../vec2.hpp"
 	"../vec3.hpp"
@@ -868,19 +864,19 @@
 	"../gtc/constants.hpp"
 	"matrix_transform.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\gtc\constants.hpp
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\gtc\constants.hpp
 	"../detail/setup.hpp"
 	"constants.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\gtc\constants.inl
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\gtc\constants.inl
 	<limits>
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\gtc\matrix_transform.inl
+1420829383 c:\program files (x86)\codeblocks\mingw\include\glm\gtc\matrix_transform.inl
 	"../geometric.hpp"
 	"../trigonometric.hpp"
 	"../matrix.hpp"
 
-1485083547 c:\program files (x86)\codeblocks\mingw\include\glm\gtx\transform.inl
+1420280585 c:\program files (x86)\codeblocks\mingw\include\glm\gtx\transform.inl
 
 1490520251 c:\users\marko\desktop\simulation\include\camera.h
 	<glm/glm.hpp>
@@ -898,7 +894,7 @@
 	<algorithm>
 	<map>
 
-1493456505 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\main.cpp
+1493564583 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\main.cpp
 	<iostream>
 	<GL/glew.h>
 	<string>
@@ -908,7 +904,7 @@
 	"bullet.h"
 	"plane.h"
 
-1493453495 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\display.h
+1493564766 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\display.h
 	<SDL2/SDL.h>
 	<string>
 	<stdio.h>
@@ -954,7 +950,7 @@
 1490412441 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\stb_image.h
 	<stdio.h>
 
-1493441700 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\display.cpp
+1493564761 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\display.cpp
 	"display.h"
 
 1490533231 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\mesh.cpp
@@ -995,7 +991,7 @@
 1493292925 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\particle.cpp
 	"particle.h"
 
-1493453228 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\bullet.h
+1493564508 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\bullet.h
 	<string>
 	<glm/glm.hpp>
 	<glm/gtc/quaternion.hpp>
@@ -1005,7 +1001,7 @@
 	"texture.h"
 	"transform.h"
 
-1493456455 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\bullet.cpp
+1493564508 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\bullet.cpp
 	"bullet.h"
 
 1493371076 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\floor.h
@@ -1020,7 +1016,7 @@
 1493370998 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\floor.cpp
 	"floor.h"
 
-1493372130 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\plane.h
+1493564798 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\plane.h
 	<string>
 	<glm/glm.hpp>
 	"display.h"
@@ -1032,7 +1028,7 @@
 1493372804 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\plane.cpp
 	"plane.h"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\gtc\quaternion.hpp
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\gtc\quaternion.hpp
 	"../mat3x3.hpp"
 	"../mat4x4.hpp"
 	"../vec3.hpp"
@@ -1040,12 +1036,11 @@
 	"../gtc/constants.hpp"
 	"quaternion.inl"
 
-1485083546 c:\program files (x86)\codeblocks\mingw\include\glm\gtc\quaternion.inl
+1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\gtc\quaternion.inl
 	"../trigonometric.hpp"
 	"../geometric.hpp"
 	"../exponential.hpp"
 	<limits>
-	"quaternion_simd.inl"
 
 1493346983 source:c:\users\mabelmelgo\desktop\vincent\cmsc162\3d-simulation\src\mesh.cpp
 	"mesh.h"

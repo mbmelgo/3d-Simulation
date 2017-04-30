@@ -17,8 +17,8 @@
 using namespace std;
 
 
-//string PATH = "E:/Vincent/4thYear/2ND SEM/CMSC_162/FINAL_PROJECT/Simulation/";
-string PATH = "C:/Users/MabelMelgo/Desktop/Vincent/CMSC162/3d-Simulation/";
+string PATH = "E:/Vincent/4thYear/2ND SEM/CMSC_162/FINAL_PROJECT/Simulation/";
+//string PATH = "C:/Users/MabelMelgo/Desktop/Vincent/CMSC162/3d-Simulation/";
 
 //Particle glass[25];
 float speedValue;
