@@ -45,13 +45,17 @@ class Bullet
     private:
         glm::vec3 m_velocity;
         glm::vec3 m_force;
-        float m_mass; //grams
+        float m_mass;
         float m_lowerBoundary;
         float m_speed;
-        float m_angleXY;
-        float m_angleXZ;
+        float m_angleXY; //pitch
+        float m_angleXZ; //yaw
         float m_deltaTime;
         float m_time;
+
+        float m_anglePitch; //pitch
+        float m_angleYaw; //yaw
+        float m_angleRoll; //roll
 
         Mesh m_mesh;
         Shader m_shader;
@@ -59,6 +63,14 @@ class Bullet
         Transform m_transform;
 
         void translate(glm::vec3 position);
+        void rotate(glm::vec3 rot);
+        float magnitude(glm::vec3 vect);
+        float getAngle(glm::vec3 currentPosition, glm::vec3 nextPosition);
+        void getPitchAngle(glm::vec3 nextPosition);
+        void getYawAngle(glm::vec3 nextPosition);
+        void getRollAngle(glm::vec3 nextPosition);
+        glm::vec3 getRotations(glm::vec3 nextPosition);
+
 };
 
 #endif // BULLET_H

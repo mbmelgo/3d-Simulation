@@ -41,7 +41,7 @@ class Display
         float m_thisTime = 0.0;
         float m_lastTime = 0.0;
         float m_cameraSpeed = 10.0f;
-        glm::vec3 m_cameraPos   = glm::vec3(0.0f, 5.0f, 30.0f);
+        glm::vec3 m_cameraPos   = glm::vec3(0.0f, 5.0f, 20.0f);
         glm::vec3 m_cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
         glm::vec3 m_cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f);
         bool m_keys[1024];

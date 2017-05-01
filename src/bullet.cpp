@@ -27,10 +27,12 @@ void Bullet::setLowerBoundary(float lowerBoundary){
 }
 
 void Bullet::setAngleXY(float angleXY){
+    m_transform.setRot(glm::vec3(0.0,0.0,angleXY));
     m_angleXY = angleXY * 3.141459/180.00;
 }
 
 void Bullet::setAngleXZ(float angleXZ){
+    m_transform.setRot(glm::vec3(0.0,angleXZ,0.0));
     m_angleXZ = angleXZ * 3.141459/180.00;
 }
 
@@ -54,15 +56,6 @@ float Bullet::getAngleXZ(){
     return m_angleXZ;
 }
 
-void Bullet::initBullet(){
-    m_velocity = glm::vec3(
-                           m_speed * cos(m_angleXY) * cos(m_angleXZ),
-                           m_speed * sin(m_angleXY),
-                           m_speed * cos(m_angleXY) * sin(m_angleXZ)
-                           );
-}
-
-
 void Bullet::applyForce(glm::vec3 force){
     force =  force / m_mass;
     m_force = m_force + force;
@@ -72,6 +65,88 @@ void Bullet::translate(glm::vec3 position){
     m_transform.setPos(position);
 }
 
+void Bullet::rotate(glm::vec3 rot){
+    if(isnan(rot.x)){
+        rot.x = 0.0;
+    }
+    if(isnan(rot.y)){
+        rot.y = 0.0;
+    }
+    if(isnan(rot.z)){
+        rot.z = 0.0;
+    }
+    m_transform.setRot(rot);
+}
+
+void Bullet::initBullet(){
+    m_velocity = glm::vec3(
+                           m_speed * cos(m_angleXY) * cos(m_angleXZ),
+                           m_speed * sin(m_angleXY),
+                           m_speed * cos(m_angleXY) * sin(m_angleXZ)
+                           );
+}
+
+float Bullet::magnitude(glm::vec3 vect){
+   return sqrt((vect.x * vect.x) + (vect.y * vect.y) + (vect.z * vect.z));
+}
+
+float Bullet::getAngle(glm::vec3 currentPosition, glm::vec3 nextPosition){
+    //Find the scalar/dot product of the provided 2 Vectors
+   float dotProduct = glm::dot(currentPosition, nextPosition);
+   //Find the product of both magnitudes of the vectors then divide dot from it
+   dotProduct = dotProduct / (magnitude(currentPosition) * magnitude(nextPosition));
+   //Get the arc cosin of the angle, you now have your angle in radians
+   float arcAcos = acos(dotProduct);
+   //Convert to degrees by Multiplying the arc cosin by 180/M_PI
+   return arcAcos * 180 / M_PI;
+}
+
+void Bullet::getYawAngle(glm::vec3 nextPosition){
+    m_angleYaw = getAngle(glm::vec3(0.0,0.0,m_transform.getPos().z),glm::vec3(0.0,0.0,nextPosition.z));
+}
+
+void Bullet::getRollAngle(glm::vec3 nextPosition){
+    m_angleRoll = getAngle(glm::vec3(m_transform.getPos().x,0.0,0.0),glm::vec3(nextPosition.x,0.0,0.0));
+}
+
+void Bullet::getPitchAngle(glm::vec3 nextPosition){
+    m_anglePitch = getAngle(glm::vec3(0.0,m_transform.getPos().y,0.0),glm::vec3(0.0,nextPosition.y,0.0));
+}
+
+glm::vec3 Bullet::getRotations(glm::vec3 nextPosition){
+    getYawAngle(nextPosition);
+    getRollAngle(nextPosition);
+    getPitchAngle(nextPosition);
+
+    if(isnan(m_anglePitch)){
+        m_anglePitch = 0.0;
+    }
+    if(isnan(m_angleYaw)){
+        m_angleYaw = 0.0;
+    }
+    if(isnan(m_angleRoll)){
+        m_angleRoll = 0.0;
+    }
+
+//    glm::vec3 currentPosition(m_transform.getPos().x,m_transform.getPos().y,m_transform.getPos().z);
+//
+//    //a==yaw b == pitch y == roll
+//    float x =   (currentPosition.x * (cos(m_angleYaw) * cos(m_anglePitch))) +
+//                (currentPosition.y * ( (cos(m_angleYaw)*sin(m_anglePitch)*sin(m_angleRoll)) - (sin(m_angleYaw)*cos(m_angleRoll)) )) +
+//                (currentPosition.z * ( (cos(m_angleYaw)*sin(m_anglePitch)*cos(m_angleRoll)) + (sin(m_angleYaw)*sin(m_angleRoll)) ));
+//
+//    float y =   (currentPosition.x * (sin(m_angleYaw)*cos(m_anglePitch)) ) +
+//                (currentPosition.y * ( (sin(m_angleYaw)*sin(m_anglePitch)*sin(m_angleRoll)) + (cos(m_angleYaw)*cos(m_angleRoll)) ))+
+//                (currentPosition.z * ( (sin(m_angleYaw)*sin(m_anglePitch)*cos(m_angleRoll)) - (cos(m_angleYaw)*sin(m_angleRoll)) ));
+//
+//    float z =   (currentPosition.x * asin(m_anglePitch)) +
+//                (currentPosition.y * (cos(m_anglePitch)*sin(m_angleRoll))) +
+//                (currentPosition.z * (cos(m_anglePitch)*cos(m_angleRoll)));
+
+    glm::vec3 rot(m_angleRoll,m_angleYaw,m_anglePitch);
+    return rot;
+}
+
 void Bullet::draw(Camera camera){
     m_shader.Bind();
     m_texture.Bind(0);
@@ -79,12 +154,14 @@ void Bullet::draw(Camera camera){
 
     m_velocity = m_velocity + m_force/m_mass * m_deltaTime;
     glm::vec3 nextPosition = m_transform.getPos() + m_velocity * m_deltaTime;
+
+    glm::vec3 rot = getRotations(nextPosition);
     if(nextPosition.y <= m_lowerBoundary){
         m_velocity.y = 0.0f;
         nextPosition.y = m_lowerBoundary;
     }
-
     translate(nextPosition);
+    rotate(rot);
     m_mesh.Draw();
     m_force = glm::vec3(0.0,0.0,0.0);
     if (m_transform.getPos().y < -10.0){
