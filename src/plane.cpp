@@ -10,11 +10,18 @@ Plane::~Plane(){
 
 void Plane::setPosition(glm::vec3 position){
     m_transform.setPos(position);
-    m_position = position;
 }
 
 glm::vec3 Plane::getPosition(){
-    return m_position;
+    return m_transform.getPos();
+}
+
+void Plane::setScale(glm::vec3 scale){
+    m_transform.setScale(scale);
+}
+
+glm::vec3 Plane::getScale(){
+    return m_transform.getScale();
 }
 
 Plane::Plane(const string& meshFileName, const string& shaderFileName, const string& textureFileName){

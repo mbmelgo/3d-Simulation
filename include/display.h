@@ -25,6 +25,21 @@ class Display
         glm::vec3 getCameraPosition();
         glm::vec3 getCameraFront();
         glm::vec3 getCameraUp();
+        bool isStart();
+
+        void setSpeedValue(float value){m_speedValue=value;}
+        void setAngleXYValue(float value){m_angleXYValue=value;}
+        void setAngleXZValue(float value){m_angleXZValue=value;}
+        void setMassValue(float value){m_massValue=value;}
+
+        float getSpeedValue(){return m_speedValue;}
+        float getAngleXYValue(){return m_angleXYValue;}
+        float getAngleXZValue(){return m_angleXZValue;}
+        float getMassValue(){return m_massValue;}
+
+        float getSpeedTimes(){return m_speedTimes;}
+        float getAngleTimes(){return m_angleTimes;}
+        float getMassTimes(){return m_massTimes;}
 
     protected:
 
@@ -33,6 +48,8 @@ class Display
         Display& operator=(const Display& other){};
 
         void doMovements();
+        void startActions();
+        void menuActions();
 
         SDL_Window* m_window;
         SDL_GLContext m_glContext;
@@ -54,13 +71,17 @@ class Display
         float m_sensitivity = 0.05;
         bool m_firstMouse = true;
         bool m_firstKey = true;
+        bool m_start = false;
 
-        float m_lowerBoundary = 0.1;
-        float m_upperBoundary = 18.0;
-        float m_leftBoundary = 17.61;
-        float m_rightBoundary = -17.61;
-        float m_frontBoundary = 18.00;
-        float m_backBoundary = -18.00;
+
+        float m_speedValue;
+        float m_angleXZValue;
+        float m_angleXYValue;
+        float m_massValue;
+
+        float m_speedTimes;
+        float m_angleTimes;
+        float m_massTimes;
 };
 
 #endif // DISPLAY_H

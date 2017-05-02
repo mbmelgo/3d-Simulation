@@ -894,7 +894,7 @@
 	<algorithm>
 	<map>
 
-1493619953 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\main.cpp
+1493734701 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\main.cpp
 	<iostream>
 	<GL/glew.h>
 	<string>
@@ -903,8 +903,9 @@
 	"camera.h"
 	"bullet.h"
 	"plane.h"
+	"menu.h"
 
-1493619667 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\display.h
+1493728342 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\display.h
 	<SDL2/SDL.h>
 	<string>
 	<stdio.h>
@@ -923,7 +924,7 @@
 	<glm/glm.hpp>
 	<glm/gtx/transform.hpp>
 
-1493302664 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\camera.h
+1493716876 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\camera.h
 	<glm/glm.hpp>
 	<glm/gtx/transform.hpp>
 	"transform.h"
@@ -950,7 +951,7 @@
 1490412441 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\stb_image.h
 	<stdio.h>
 
-1493564761 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\display.cpp
+1493730373 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\display.cpp
 	"display.h"
 
 1490533231 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\mesh.cpp
@@ -991,7 +992,7 @@
 1493292925 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\particle.cpp
 	"particle.h"
 
-1493615242 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\bullet.h
+1493652964 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\bullet.h
 	<string>
 	<glm/glm.hpp>
 	<glm/gtc/quaternion.hpp>
@@ -1016,7 +1017,7 @@
 1493370998 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\floor.cpp
 	"floor.h"
 
-1493564798 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\plane.h
+1493718139 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\plane.h
 	<string>
 	<glm/glm.hpp>
 	"display.h"
@@ -1025,7 +1026,7 @@
 	"texture.h"
 	"transform.h"
 
-1493564993 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\plane.cpp
+1493718175 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\plane.cpp
 	"plane.h"
 
 1424001528 c:\program files (x86)\codeblocks\mingw\include\glm\gtc\quaternion.hpp
@@ -1207,4 +1208,228 @@
 
 1493466863 source:c:\users\mabelmelgo\desktop\vincent\cmsc162\3d-simulation\src\plane.cpp
 	"plane.h"
+
+1493727823 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\menu.h
+	<string>
+	<glm/glm.hpp>
+	"shader.h"
+	"mesh.h"
+	"texture.h"
+	"transform.h"
+
+1493727821 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\menu.cpp
+	"menu.h"
+
+1426320928 c:\program files (x86)\codeblocks\mingw\include\gl\glut.h
+	"freeglut_std.h"
+
+1426320928 c:\program files (x86)\codeblocks\mingw\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1301111162 c:\program files (x86)\codeblocks\mingw\include\windows.h
+	<winresrc.h>
+	<stdarg.h>
+	<windef.h>
+	<wincon.h>
+	<winbase.h>
+	<wingdi.h>
+	<winuser.h>
+	<winnls.h>
+	<winver.h>
+	<winnetwk.h>
+	<winreg.h>
+	<winsvc.h>
+	<cderr.h>
+	<dde.h>
+	<ddeml.h>
+	<dlgs.h>
+	<imm.h>
+	<lzexpand.h>
+	<mmsystem.h>
+	<nb30.h>
+	<rpc.h>
+	<shellapi.h>
+	<winperf.h>
+	<commdlg.h>
+	<winspool.h>
+	<winsock2.h>
+	<winsock.h>
+	<ole2.h>
+
+1301111162 c:\program files (x86)\codeblocks\mingw\include\winresrc.h
+	<winuser.h>
+	<winnt.h>
+	<winver.h>
+	<dde.h>
+	<dlgs.h>
+	<commctrl.h>
+
+1301111164 c:\program files (x86)\codeblocks\mingw\include\winuser.h
+
+1301111162 c:\program files (x86)\codeblocks\mingw\include\winnt.h
+	<winerror.h>
+	<string.h>
+	<basetsd.h>
+	<pshpack4.h>
+	<poppack.h>
+
+1301111162 c:\program files (x86)\codeblocks\mingw\include\winerror.h
+
+1301111148 c:\program files (x86)\codeblocks\mingw\include\basetsd.h
+
+1301111156 c:\program files (x86)\codeblocks\mingw\include\pshpack4.h
+
+1301111156 c:\program files (x86)\codeblocks\mingw\include\poppack.h
+
+1301111164 c:\program files (x86)\codeblocks\mingw\include\winver.h
+
+1301111148 c:\program files (x86)\codeblocks\mingw\include\dde.h
+
+1301111150 c:\program files (x86)\codeblocks\mingw\include\dlgs.h
+
+1301111148 c:\program files (x86)\codeblocks\mingw\include\commctrl.h
+	<prsht.h>
+
+1301111156 c:\program files (x86)\codeblocks\mingw\include\prsht.h
+
+1301111162 c:\program files (x86)\codeblocks\mingw\include\windef.h
+	<winnt.h>
+
+1301111162 c:\program files (x86)\codeblocks\mingw\include\wincon.h
+
+1301111160 c:\program files (x86)\codeblocks\mingw\include\winbase.h
+
+1301111162 c:\program files (x86)\codeblocks\mingw\include\wingdi.h
+
+1301111162 c:\program files (x86)\codeblocks\mingw\include\winnls.h
+
+1301111162 c:\program files (x86)\codeblocks\mingw\include\winnetwk.h
+
+1301111162 c:\program files (x86)\codeblocks\mingw\include\winreg.h
+
+1301111164 c:\program files (x86)\codeblocks\mingw\include\winsvc.h
+
+1301111148 c:\program files (x86)\codeblocks\mingw\include\cderr.h
+
+1301111148 c:\program files (x86)\codeblocks\mingw\include\ddeml.h
+
+1301111150 c:\program files (x86)\codeblocks\mingw\include\imm.h
+
+1301111154 c:\program files (x86)\codeblocks\mingw\include\lzexpand.h
+
+1301111154 c:\program files (x86)\codeblocks\mingw\include\mmsystem.h
+
+1301111154 c:\program files (x86)\codeblocks\mingw\include\nb30.h
+
+1301111158 c:\program files (x86)\codeblocks\mingw\include\rpc.h
+	<windows.h>
+	<rpcdce.h>
+	<rpcnsi.h>
+	<rpcnterr.h>
+	<winerror.h>
+	<excpt.h>
+
+1301111158 c:\program files (x86)\codeblocks\mingw\include\rpcdce.h
+	<basetyps.h>
+	<rpcdcep.h>
+
+1301111148 c:\program files (x86)\codeblocks\mingw\include\basetyps.h
+
+1301111158 c:\program files (x86)\codeblocks\mingw\include\rpcdcep.h
+
+1301111158 c:\program files (x86)\codeblocks\mingw\include\rpcnsi.h
+
+1301111158 c:\program files (x86)\codeblocks\mingw\include\rpcnterr.h
+
+1341006772 c:\program files (x86)\codeblocks\mingw\include\excpt.h
+	<_mingw.h>
+	<windef.h>
+
+1301111160 c:\program files (x86)\codeblocks\mingw\include\shellapi.h
+	<pshpack2.h>
+	<poppack.h>
+
+1301111156 c:\program files (x86)\codeblocks\mingw\include\pshpack2.h
+
+1301111162 c:\program files (x86)\codeblocks\mingw\include\winperf.h
+
+1301111148 c:\program files (x86)\codeblocks\mingw\include\commdlg.h
+	<unknwn.h>
+	<prsht.h>
+
+1301111160 c:\program files (x86)\codeblocks\mingw\include\unknwn.h
+	<windows.h>
+	<objfwd.h>
+	<wtypes.h>
+
+1301111156 c:\program files (x86)\codeblocks\mingw\include\objfwd.h
+	<basetyps.h>
+
+1301111164 c:\program files (x86)\codeblocks\mingw\include\wtypes.h
+	<rpc.h>
+	<rpcndr.h>
+
+1301111158 c:\program files (x86)\codeblocks\mingw\include\rpcndr.h
+	<rpcnsip.h>
+	<objfwd.h>
+
+1301111158 c:\program files (x86)\codeblocks\mingw\include\rpcnsip.h
+
+1301111162 c:\program files (x86)\codeblocks\mingw\include\winspool.h
+
+1301111162 c:\program files (x86)\codeblocks\mingw\include\winsock2.h
+	<windows.h>
+
+1301111162 c:\program files (x86)\codeblocks\mingw\include\winsock.h
+	<windows.h>
+	<mswsock.h>
+
+1301111154 c:\program files (x86)\codeblocks\mingw\include\mswsock.h
+
+1301111156 c:\program files (x86)\codeblocks\mingw\include\ole2.h
+	<winerror.h>
+	<objbase.h>
+	<olectlid.h>
+	<oleauto.h>
+	<oleidl.h>
+
+1301111154 c:\program files (x86)\codeblocks\mingw\include\objbase.h
+	<rpc.h>
+	<rpcndr.h>
+	<stdlib.h>
+	<basetyps.h>
+	<wtypes.h>
+	<unknwn.h>
+	<objidl.h>
+	<cguid.h>
+
+1301111156 c:\program files (x86)\codeblocks\mingw\include\objidl.h
+	<objfwd.h>
+
+1301111148 c:\program files (x86)\codeblocks\mingw\include\cguid.h
+
+1301111156 c:\program files (x86)\codeblocks\mingw\include\olectlid.h
+
+1301111156 c:\program files (x86)\codeblocks\mingw\include\oleauto.h
+	<oaidl.h>
+
+1301111154 c:\program files (x86)\codeblocks\mingw\include\oaidl.h
+	<windows.h>
+	<ole2.h>
+
+1301111156 c:\program files (x86)\codeblocks\mingw\include\oleidl.h
+	<objfwd.h>
+
+1454523238 c:\program files (x86)\codeblocks\mingw\include\ft2build.h
+	<freetype/config/ftheader.h>
+
+1458461037 c:\program files (x86)\codeblocks\mingw\include\freetype\config\ftheader.h
 

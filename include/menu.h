@@ -1,21 +1,20 @@
-#ifndef FLOOR_H
-#define FLOOR_H
+#ifndef MENU_H
+#define MENU_H
 
 #include <string>
 #include <glm/glm.hpp>
 
-#include "display.h"
 #include "shader.h"
 #include "mesh.h"
 #include "texture.h"
 #include "transform.h"
 
-class Plane
+class Menu
 {
     public:
-        Plane();
-        Plane(const string& meshFileName, const string& shaderFileName, const string& textureFileName);
-        virtual ~Plane();
+        Menu();
+        Menu(const string& meshFileName, const string& shaderFileName, const string& textureFileName);
+        virtual ~Menu();
 
         void init(const string& meshFileName, const string& shaderFileName, const string& textureFileName);
         void draw(Camera camera);
@@ -24,6 +23,10 @@ class Plane
         glm::vec3 getPosition();
         void setScale(glm::vec3 scale);
         glm::vec3 getScale();
+        void setRotation(glm::vec3 rotation);
+        glm::vec3 getRotation();
+
+        void changeTexture(const string& textureFileName);
 
     protected:
 
@@ -32,8 +35,6 @@ class Plane
         Shader m_shader;
         Texture m_texture;
         Transform m_transform;
-
-        void drawCoordinates();
 };
 
-#endif // FLOOR_H
+#endif // MENU_H
