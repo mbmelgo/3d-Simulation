@@ -47,6 +47,7 @@
 		<Unit filename="include/bullet.h" />
 		<Unit filename="include/camera.h" />
 		<Unit filename="include/display.h" />
+		<Unit filename="include/glass.h" />
 		<Unit filename="include/menu.h" />
 		<Unit filename="include/mesh.h" />
 		<Unit filename="include/obj_loader.h" />
@@ -58,6 +59,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/bullet.cpp" />
 		<Unit filename="src/display.cpp" />
+		<Unit filename="src/glass.cpp" />
 		<Unit filename="src/menu.cpp" />
 		<Unit filename="src/mesh.cpp" />
 		<Unit filename="src/obj_loader.cpp" />

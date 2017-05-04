@@ -7,9 +7,33 @@
 			<Cursor1 position="53" topLine="19" />
 		</Cursor>
 	</File>
+	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7156" topLine="100" />
+		</Cursor>
+		<Folding>
+			<Collapse line="74" />
+			<Collapse line="166" />
+		</Folding>
+	</File>
+	<File name="src\glass.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="22" />
+		</Cursor>
+	</File>
+	<File name="include\shader.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="470" topLine="28" />
+		</Cursor>
+	</File>
+	<File name="src\display.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4544" topLine="135" />
+		</Cursor>
+	</File>
 	<File name="src\bullet.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="5709" topLine="52" />
+			<Cursor1 position="5505" topLine="111" />
 		</Cursor>
 		<Folding>
 			<Collapse line="2" />
@@ -20,66 +44,34 @@
 			<Collapse line="24" />
 			<Collapse line="28" />
 			<Collapse line="33" />
+			<Collapse line="38" />
+			<Collapse line="42" />
+			<Collapse line="46" />
+			<Collapse line="50" />
+			<Collapse line="54" />
+			<Collapse line="58" />
+			<Collapse line="63" />
+			<Collapse line="67" />
+			<Collapse line="81" />
+			<Collapse line="89" />
+			<Collapse line="93" />
+			<Collapse line="104" />
+			<Collapse line="108" />
 		</Folding>
-	</File>
-	<File name="src\texture.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="908" topLine="18" />
-		</Cursor>
-	</File>
-	<File name="src\display.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="5101" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\menu.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1033" topLine="38" />
-		</Cursor>
-	</File>
-	<File name="include\plane.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="636" topLine="16" />
-		</Cursor>
-	</File>
-	<File name="include\bullet.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="36" topLine="24" />
-		</Cursor>
-	</File>
-	<File name="include\display.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1233" topLine="28" />
-		</Cursor>
-	</File>
-	<File name="include\transform.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1030" topLine="18" />
-		</Cursor>
-	</File>
-	<File name="include\camera.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="761" topLine="21" />
-		</Cursor>
-	</File>
-	<File name="include\menu.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="782" topLine="23" />
-		</Cursor>
-	</File>
-	<File name="include\shader.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="470" topLine="28" />
-		</Cursor>
-	</File>
-	<File name="include\stb_image.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="78" />
-		</Cursor>
 	</File>
 	<File name="include\texture.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="371" topLine="13" />
+		</Cursor>
+	</File>
+	<File name="src\obj_loader.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="45" />
+		</Cursor>
+	</File>
+	<File name="include\display.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1330" topLine="70" />
 		</Cursor>
 	</File>
 	<File name="src\mesh.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -87,19 +79,9 @@
 			<Cursor1 position="458" topLine="5" />
 		</Cursor>
 	</File>
-	<File name="src\plane.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include\menu.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="354" topLine="79" />
-		</Cursor>
-	</File>
-	<File name="src\shader.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3603" topLine="114" />
-		</Cursor>
-	</File>
-	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4939" topLine="114" />
+			<Cursor1 position="782" topLine="23" />
 		</Cursor>
 	</File>
 	<File name="include\obj_loader.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -107,9 +89,54 @@
 			<Cursor1 position="0" topLine="33" />
 		</Cursor>
 	</File>
-	<File name="src\obj_loader.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include\bullet.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="0" topLine="45" />
+			<Cursor1 position="1489" topLine="42" />
+		</Cursor>
+	</File>
+	<File name="include\stb_image.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="78" />
+		</Cursor>
+	</File>
+	<File name="include\plane.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="704" topLine="23" />
+		</Cursor>
+	</File>
+	<File name="include\camera.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="761" topLine="21" />
+		</Cursor>
+	</File>
+	<File name="src\plane.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="720" topLine="29" />
+		</Cursor>
+	</File>
+	<File name="include\transform.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1030" topLine="18" />
+		</Cursor>
+	</File>
+	<File name="src\shader.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3603" topLine="114" />
+		</Cursor>
+	</File>
+	<File name="src\texture.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="908" topLine="18" />
+		</Cursor>
+	</File>
+	<File name="include\glass.h" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="21" />
+		</Cursor>
+	</File>
+	<File name="src\menu.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1033" topLine="38" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
