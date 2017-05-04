@@ -3,7 +3,6 @@
 
 #include <string>
 #include <glm/glm.hpp>
-#include<glm/gtc/quaternion.hpp>
 
 #include "display.h"
 #include "shader.h"

@@ -92,6 +92,8 @@ void Plane::draw(Camera camera){
     m_shader.Bind();
     m_texture.Bind(0);
     m_shader.Update(m_transform, camera);
-    drawCoordinates();
+    if(m_drawCoordinates){
+        drawCoordinates();
+    }
     m_mesh.Draw();
 }

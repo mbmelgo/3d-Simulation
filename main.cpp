@@ -8,6 +8,7 @@
 #include "bullet.h"
 #include "plane.h"
 #include "menu.h"
+#include "glass.h"
 
 #define WIDTH 800
 #define HEIGHT 600
@@ -18,38 +19,27 @@ using namespace std;
 string PATH = "E:/Vincent/4thYear/2ND SEM/CMSC_162/FINAL_PROJECT/Simulation/";
 //string PATH = "C:/Users/MabelMelgo/Desktop/Vincent/CMSC162/3d-Simulation/";
 
-//Particle glass[25];
-
 float gravityValue = -9.8f;
 Display display(WIDTH,HEIGHT,"Simulation");
 
 glm::vec3 gravity;
+Glass glass;
 Bullet bullet;
 Plane ground;
+Plane leftWall;
+Plane rightWall;
 int totalMenuSize = 11;
 Menu menu[11];
 Camera camera(glm::vec3(0,0,5), 70.0f, (float)WIDTH/(float)HEIGHT, 0.01f, 1000.0f);
 float lowerBoundary = 0.0;
+bool start = true;
 
-//void generateGlassParts(){
-//    for(int i=1;i<26;i++){
-//        string filename = "Simulation/res/glass_fragments/";
-//        stringstream convert;
-//        convert << i;
-//        filename.append(convert.str());
-//        filename.append(".obj");
-//        glass[i].init(filename,
-//                      "Simulation/res/basicShader",
-//                      "Simulation/res/skin.jpg");
-//        if (i == 25){
-//            glass[i].scale(glm::vec3(0.9,0.9,0.9));
-//        } else {
-//            glass[i].scale(glm::vec3(-0.1,-0.1,-0.1));
-//        }
-////        glass[i].rotate(glm::vec3(0.0,0.7,0.0));
-//        glass[i].setLocation(glm::vec3(-0.5,0.0,0.0));
-//    }
-//}
+void generateGlass(){
+    glass.init(    PATH+"res/obj_files/glass_2.obj",
+                    PATH+"res/shaders/basicShader",
+                    PATH+"res/textures/glass_skin.jpg");
+    glass.setLocation(glm::vec3(20.0,10.0,0.0));
+}
 
 void generateBullet(){
     bullet.init(    PATH+"res/obj_files/bullet.obj",
@@ -69,6 +59,17 @@ void generateBackground(){
                     PATH+"res/textures/plane_skin.jpg");
     ground.setPosition(glm::vec3(0.0,0.0,0.0));
     ground.setScale(glm::vec3(5.0,0.0,5.0));
+    ground.setDrawCoordinates(true);
+    leftWall.init(  PATH+"res/obj_files/plane_2.obj",
+                    PATH+"res/shaders/basicShader",
+                    PATH+"res/textures/plane_skin_2.jpeg");
+    leftWall.setPosition(glm::vec3(20.0,10.2,-20.0));
+    leftWall.setDrawCoordinates(false);
+    rightWall.init( PATH+"res/obj_files/plane_2.obj",
+                    PATH+"res/shaders/basicShader",
+                    PATH+"res/textures/plane_skin_2.jpeg");
+    rightWall.setPosition(glm::vec3(20.0,10.2,20.0));
+    rightWall.setDrawCoordinates(false);
 }
 
 void generateMenu(){
@@ -134,6 +135,7 @@ void init(){
     generateBackground();
     generateMenu();
     generateBullet();
+    generateGlass();
     gravity = glm::vec3(0.0,gravityValue,0.0);
 }
 
@@ -141,19 +143,23 @@ void startActions(){
     bullet.applyForce(gravity);
     bullet.draw(camera);
 
+    glass.draw(camera);
+
 
 //      WALLS
     ground.draw(camera);
+    leftWall.draw(camera);
+    rightWall.draw(camera);
 }
 
 void getSpeedTimes(){
-    if(display.getSpeedTimes()==1){
+    if(display.getSpeedTimes()==1.0){
         menu[7].changeTexture(PATH+"res/textures/menu/1x.png");
-    } else if(display.getSpeedTimes()==2){
+    } else if(display.getSpeedTimes()==1.25){
         menu[7].changeTexture(PATH+"res/textures/menu/2x.png");
-    } else if(display.getSpeedTimes()==3){
+    } else if(display.getSpeedTimes()==1.50){
         menu[7].changeTexture(PATH+"res/textures/menu/3x.png");
-    } else if(display.getSpeedTimes()==4){
+    } else if(display.getSpeedTimes()==1.75){
         menu[7].changeTexture(PATH+"res/textures/menu/4x.png");
     }
 }
@@ -179,35 +185,17 @@ void getAngleTimes(){
         menu[9].changeTexture(PATH+"res/textures/menu/80d.png");
     } else if (display.getAngleTimes()==9){
         menu[9].changeTexture(PATH+"res/textures/menu/90d.png");
-    } else if (display.getAngleTimes()==-1){
-        menu[9].changeTexture(PATH+"res/textures/menu/10dn.png");
-    } else if (display.getAngleTimes()==-2){
-        menu[9].changeTexture(PATH+"res/textures/menu/20dn.png");
-    } else if (display.getAngleTimes()==-3){
-        menu[9].changeTexture(PATH+"res/textures/menu/30dn.png");
-    } else if (display.getAngleTimes()==-4){
-        menu[9].changeTexture(PATH+"res/textures/menu/40dn.png");
-    } else if (display.getAngleTimes()==-5){
-        menu[9].changeTexture(PATH+"res/textures/menu/50dn.png");
-    } else if (display.getAngleTimes()==-6){
-        menu[9].changeTexture(PATH+"res/textures/menu/60dn.png");
-    } else if (display.getAngleTimes()==-7){
-        menu[9].changeTexture(PATH+"res/textures/menu/70dn.png");
-    } else if (display.getAngleTimes()==-8){
-        menu[9].changeTexture(PATH+"res/textures/menu/80dn.png");
-    } else if (display.getAngleTimes()==-9){
-        menu[9].changeTexture(PATH+"res/textures/menu/90dn.png");
     }
 }
 
 void getMassTimes(){
-    if(display.getMassTimes()==1){
+    if(display.getMassTimes()==1.0){
         menu[8].changeTexture(PATH+"res/textures/menu/1x.png");
-    } else if(display.getMassTimes()==2){
+    } else if(display.getMassTimes()==1.25){
         menu[8].changeTexture(PATH+"res/textures/menu/2x.png");
-    } else if(display.getMassTimes()==3){
+    } else if(display.getMassTimes()==1.5){
         menu[8].changeTexture(PATH+"res/textures/menu/3x.png");
-    } else if(display.getMassTimes()==4){
+    } else if(display.getMassTimes()==1.75){
         menu[8].changeTexture(PATH+"res/textures/menu/4x.png");
     }
 }
@@ -222,7 +210,6 @@ void menuActions(){
     bullet.setAngleXY(display.getAngleXYValue());
     bullet.setSpeed(display.getSpeedValue());
     bullet.setMass(display.getMassValue());
-    bullet.initBullet();
 }
 
 int main(){
@@ -233,7 +220,13 @@ int main(){
         camera.setCamera(display.getCameraPosition(),display.getCameraFront());
 
         if (display.isStart()){
-                startActions();
+            if(start){
+                printf("START\n");
+                bullet.initBullet();
+                display.setCamerPosition(glm::vec3(0.0f, 5.0f, 50.0f));
+                start = false;
+            }
+            startActions();
         } else {
             menuActions();
         }

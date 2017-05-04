@@ -75,6 +75,7 @@ void Bullet::rotate(glm::vec3 rot){
     if(isnan(rot.z)){
         rot.z = 0.0;
     }
+//    glm::vec3 newRot = glm::vec3(m_transform.getRot().x+rot.x,m_transform.getRot().y+rot.y,m_transform.getRot().z+rot.z);
     m_transform.setRot(rot);
 }
 
@@ -164,8 +165,14 @@ void Bullet::draw(Camera camera){
     rotate(rot);
     m_mesh.Draw();
     m_force = glm::vec3(0.0,0.0,0.0);
-    if (m_transform.getPos().y < -10.0){
-        m_transform.getPos().y = -10.0;
+    if (m_transform.getPos().y <= 0.1){
+        m_transform.getPos().y = 0.1;
+        glm::vec3 friction = glm::vec3(m_velocity.x*-1,m_velocity.y,m_velocity.z);
+        friction.x = friction.x * 3;
+        friction.y = friction.y * 3;
+        friction.z = friction.z * 3;
+        applyForce(friction);
+//        printf("%f\n",m_velocity.x);
     }
     m_time = m_time + m_deltaTime;
 }

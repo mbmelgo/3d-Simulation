@@ -125,12 +125,12 @@ void Display::menuActions(){
                     m_start = true;
                     break;
                 case SDLK_q:
-                    m_speedTimes = m_speedTimes + 1.0;
-                    if(m_speedTimes>4) m_speedTimes = 4.0;
+                    m_speedTimes = m_speedTimes + 0.25;
+                    if(m_speedTimes>1.75) m_speedTimes = 1.75;
                     m_speedValue = 2.0 * m_speedTimes;
                     break;
                 case SDLK_a:
-                    m_speedTimes = m_speedTimes - 1.0;
+                    m_speedTimes = m_speedTimes - 0.25;
                     if(m_speedTimes<1) m_speedTimes = 1.0;
                     m_speedValue = 2.0 * m_speedTimes;
                     break;
@@ -141,16 +141,16 @@ void Display::menuActions(){
                     break;
                 case SDLK_d:
                     m_angleTimes = m_angleTimes - 1.0;
-                    if(m_angleTimes<-9) m_angleTimes = -9.0;
+                    if(m_angleTimes<0) m_angleTimes = 0.0;
                     m_angleXYValue = 0.0 + (10 * m_angleTimes);
                     break;
                 case SDLK_w:
-                    m_massTimes = m_massTimes + 1.0;
-                    if(m_massTimes>4) m_massTimes = 4.0;
+                    m_massTimes = m_massTimes + 0.25;
+                    if(m_massTimes>1.75) m_massTimes = 1.75;
                     m_massValue = 10.0 * m_massTimes;
                     break;
                 case SDLK_s:
-                    m_massTimes = m_massTimes - 1.0;
+                    m_massTimes = m_massTimes - 0.25;
                     if(m_massTimes<1) m_massTimes = 1.0;
                     m_massValue = 10.0 * m_massTimes;
                     break;

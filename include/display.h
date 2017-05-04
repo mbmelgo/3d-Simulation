@@ -41,6 +41,8 @@ class Display
         float getAngleTimes(){return m_angleTimes;}
         float getMassTimes(){return m_massTimes;}
 
+        void setCamerPosition(glm::vec3 position){m_cameraPos = position;}
+
     protected:
 
     private:

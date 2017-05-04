@@ -25,6 +25,8 @@ class Plane
         void setScale(glm::vec3 scale);
         glm::vec3 getScale();
 
+        void setDrawCoordinates(bool drawCoor){m_drawCoordinates = drawCoor;}
+
     protected:
 
     private:
@@ -32,6 +34,7 @@ class Plane
         Shader m_shader;
         Texture m_texture;
         Transform m_transform;
+        bool m_drawCoordinates;
 
         void drawCoordinates();
 };
