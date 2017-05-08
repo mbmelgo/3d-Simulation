@@ -169,9 +169,9 @@ void Bullet::draw(Camera camera){
     if (m_transform.getPos().y <= 0.1){
         m_transform.getPos().y = 0.1;
         glm::vec3 friction = glm::vec3(m_velocity.x*-1,m_velocity.y,m_velocity.z);
-        friction.x = friction.x * 3;
-        friction.y = friction.y * 3;
-        friction.z = friction.z * 3;
+        friction.x = friction.x * 5;
+        friction.y = friction.y * 5;
+        friction.z = friction.z * 5;
         applyForce(friction);
     }
     if(m_transform.getPos().x>=20.0 && !m_hasTarget){

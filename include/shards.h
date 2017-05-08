@@ -20,6 +20,7 @@ class Shards
         void draw(Camera camera);
 
         void applyForce(glm::vec3 force);
+        void setStop(bool isStopped){m_stop = isStopped;}
 
     protected:
 

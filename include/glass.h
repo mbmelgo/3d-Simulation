@@ -27,6 +27,7 @@ class Glass
             }
         }
         glm::vec3 getTarget();
+        bool canBreak(){return m_breaks;}
 
     protected:
 
@@ -40,6 +41,7 @@ class Glass
         glm::vec3 m_LowerRight = glm::vec3(20.0, 0.0, -10.0);
         glm::vec3 m_LowerLeft = glm::vec3(20.0, 0.0, 10.0);
         bool m_canBreak = false;
+        bool m_breaks = false;
 
         float m_velocityLimit = 1.0;
 

@@ -4,10 +4,12 @@
 #define SDL_MAIN_HANDLED
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_mixer.h>
 #include <string>
 #include <stdio.h>
 #include <GL/glew.h>
 #include <glm/glm.hpp>
+
 
 using namespace std;
 
@@ -15,7 +17,7 @@ using namespace std;
 class Display
 {
     public:
-        Display(int width, int height, const string& title);
+        Display(int width, int height, const string& title, const string& path);
         virtual ~Display();
 
         void update();
@@ -42,6 +44,8 @@ class Display
         float getMassTimes(){return m_massTimes;}
 
         void setCamerPosition(glm::vec3 position){m_cameraPos = position;}
+
+        void playGlassBreak(){Mix_PlayChannel(-1,m_glassMusic,0);};
 
     protected:
 
@@ -84,6 +88,10 @@ class Display
         float m_speedTimes;
         float m_angleTimes;
         float m_massTimes;
+
+
+        Mix_Chunk *m_gunMusic = NULL;
+        Mix_Chunk *m_glassMusic = NULL;
 };
 
 #endif // DISPLAY_H

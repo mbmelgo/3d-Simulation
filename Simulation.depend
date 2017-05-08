@@ -894,7 +894,7 @@
 	<algorithm>
 	<map>
 
-1494146044 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\main.cpp
+1494225845 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\main.cpp
 	<iostream>
 	<GL/glew.h>
 	<string>
@@ -906,8 +906,9 @@
 	"menu.h"
 	"glass.h"
 
-1493886728 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\display.h
+1494225367 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\display.h
 	<SDL2/SDL.h>
+	<SDL2/SDL_mixer.h>
 	<string>
 	<stdio.h>
 	<GL/glew.h>
@@ -952,7 +953,7 @@
 1490412441 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\stb_image.h
 	<stdio.h>
 
-1494130282 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\display.cpp
+1494225242 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\display.cpp
 	"display.h"
 
 1494126755 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\mesh.cpp
@@ -1002,7 +1003,7 @@
 	"texture.h"
 	"transform.h"
 
-1494220845 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\bullet.cpp
+1494225951 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\bullet.cpp
 	"bullet.h"
 
 1493371076 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\floor.h
@@ -1433,17 +1434,17 @@
 
 1458461037 c:\program files (x86)\codeblocks\mingw\include\freetype\config\ftheader.h
 
-1494221280 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\glass.cpp
+1494225802 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\glass.cpp
 	"glass.h"
 
-1494221285 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\glass.h
+1494225821 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\glass.h
 	<string>
 	<glm/glm.hpp>
 	<algorithm>
 	<stdlib.h>
 	"shards.h"
 
-1494221266 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\shards.h
+1494225681 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\shards.h
 	<string>
 	<glm/glm.hpp>
 	"shader.h"
@@ -1453,4 +1454,13 @@
 
 1494221256 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\shards.cpp
 	"shards.h"
+
+1451801791 c:\program files (x86)\codeblocks\mingw\include\sdl2\sdl_mixer.h
+	"SDL_stdinc.h"
+	"SDL_rwops.h"
+	"SDL_audio.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
 

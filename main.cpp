@@ -19,7 +19,7 @@ using namespace std;
 string PATH = "E:/Vincent/4thYear/2ND SEM/CMSC_162/FINAL_PROJECT/Simulation/";
 //string PATH = "C:/Users/MabelMelgo/Desktop/Vincent/CMSC162/3d-Simulation/";
 
-Display display(WIDTH,HEIGHT,"Simulation");
+Display display(WIDTH,HEIGHT,"Simulation", PATH);
 
 Glass glass;
 Bullet bullet;
@@ -144,6 +144,9 @@ void startActions(){
         glass.setVelocityIncoming(bullet.getTargetVelocity());
         glass.setTarget(bullet.getTarget());
         hasTarget = true;
+        if(glass.canBreak()){
+            display.playGlassBreak();
+        }
     }
     glass.draw(camera);
 

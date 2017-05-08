@@ -1,6 +1,6 @@
 #include "display.h"
 
-Display::Display(int width, int height, const string& title){
+Display::Display(int width, int height, const string& title, const string& path){
     m_speedValue = 2.0;
     m_angleXZValue = 0.0;
     m_angleXYValue = 0.0;
@@ -10,7 +10,7 @@ Display::Display(int width, int height, const string& title){
     m_angleTimes = 0.0;
     m_massTimes = 1.0;
 
-    SDL_Init(SDL_INIT_EVERYTHING);
+    SDL_Init(SDL_INIT_EVERYTHING | SDL_INIT_AUDIO);
 
     SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
@@ -27,6 +27,25 @@ Display::Display(int width, int height, const string& title){
 
     if (status != GLEW_OK){
         printf("GLEW FAILED TO INITIALIZED!");
+    }
+
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0){
+        printf("MIXER FAILED TO INITIALIZED!");
+    }
+    string name = path + "/res/sounds/glass.wav";
+    const char *mycharp = name.c_str();
+    m_glassMusic = Mix_LoadWAV(mycharp);
+
+    if (m_glassMusic == NULL){
+            printf("GLASS MUSIC NOT FOUND");
+    }
+
+    name = path + "/res/sounds/gun.wav";
+    const char *mycharp2 = name.c_str();
+    m_gunMusic = Mix_LoadWAV(mycharp2);
+
+    if (m_gunMusic == NULL){
+            printf("GUN MUSIC NOT FOUND");
     }
 
     n_isClosed = false;
@@ -126,6 +145,7 @@ void Display::menuActions(){
             switch (e.key.keysym.sym){
                 case SDLK_SPACE:
                     m_start = true;
+                    Mix_PlayChannel(-1,m_gunMusic,0);
                     break;
                 case SDLK_q:
                     m_speedTimes = m_speedTimes + 0.25;
