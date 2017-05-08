@@ -894,7 +894,7 @@
 	<algorithm>
 	<map>
 
-1493890946 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\main.cpp
+1494146044 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\main.cpp
 	<iostream>
 	<GL/glew.h>
 	<string>
@@ -930,7 +930,7 @@
 	<glm/gtx/transform.hpp>
 	"transform.h"
 
-1490533105 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\mesh.h
+1494126725 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\mesh.h
 	<glm/glm.hpp>
 	<GL/glew.h>
 	<vector>
@@ -952,10 +952,10 @@
 1490412441 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\stb_image.h
 	<stdio.h>
 
-1493890936 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\display.cpp
+1494130282 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\display.cpp
 	"display.h"
 
-1490533231 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\mesh.cpp
+1494126755 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\mesh.cpp
 	"mesh.h"
 
 1418851474 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\obj_loader.cpp
@@ -993,7 +993,7 @@
 1493292925 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\particle.cpp
 	"particle.h"
 
-1493884542 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\bullet.h
+1494142433 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\bullet.h
 	<string>
 	<glm/glm.hpp>
 	"display.h"
@@ -1002,7 +1002,7 @@
 	"texture.h"
 	"transform.h"
 
-1493889859 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\bullet.cpp
+1494220845 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\bullet.cpp
 	"bullet.h"
 
 1493371076 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\floor.h
@@ -1433,15 +1433,24 @@
 
 1458461037 c:\program files (x86)\codeblocks\mingw\include\freetype\config\ftheader.h
 
-1493884972 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\glass.cpp
+1494221280 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\glass.cpp
 	"glass.h"
 
-1493889155 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\glass.h
+1494221285 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\glass.h
 	<string>
 	<glm/glm.hpp>
-	"display.h"
+	<algorithm>
+	<stdlib.h>
+	"shards.h"
+
+1494221266 e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\include\shards.h
+	<string>
+	<glm/glm.hpp>
 	"shader.h"
 	"mesh.h"
 	"texture.h"
 	"transform.h"
+
+1494221256 source:e:\vincent\4thyear\2nd sem\cmsc_162\final_project\simulation\src\shards.cpp
+	"shards.h"
 

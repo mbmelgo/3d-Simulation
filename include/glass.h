@@ -3,12 +3,10 @@
 
 #include <string>
 #include <glm/glm.hpp>
+#include <algorithm>
+#include <stdlib.h>
 
-#include "display.h"
-#include "shader.h"
-#include "mesh.h"
-#include "texture.h"
-#include "transform.h"
+#include "shards.h"
 
 using namespace std;
 
@@ -16,24 +14,39 @@ class Glass
 {
     public:
         Glass();
-        Glass(const string& meshFileName, const string& shaderFileName, const string& textureFileName);
+        Glass(const string& shaderFileName, const string& textureFileName);
         virtual ~Glass();
 
-        void init(const string& meshFileName, const string& shaderFileName, const string& textureFileName);
+        void init(const string& shaderFileName, const string& textureFileName);
         void draw(Camera camera);
 
-        void setLocation(glm::vec3 position);
-        void scale(glm::vec3 position);
+        void setTarget(glm::vec3 target);
+        void setVelocityIncoming(float velocity){
+            if (velocity >= m_velocityLimit){
+                m_canBreak = true;
+            }
+        }
+        glm::vec3 getTarget();
 
     protected:
 
     private:
-        Mesh m_mesh;
-        Shader m_shader;
-        Texture m_texture;
-        Transform m_transform;
+        string m_shader;
+        string m_texture;
+        Shards m_shards[48];
+        glm::vec3 m_target;
+        glm::vec3 m_UpperRight = glm::vec3(20.0, 10.0, -10.0);
+        glm::vec3 m_UpperLeft = glm::vec3(20.0, 10.0, 10.0);
+        glm::vec3 m_LowerRight = glm::vec3(20.0, 0.0, -10.0);
+        glm::vec3 m_LowerLeft = glm::vec3(20.0, 0.0, 10.0);
+        bool m_canBreak = false;
 
         float m_velocityLimit = 1.0;
+
+        void generateShards();
+        float mid(float x,float y);
+        float third(float x,float y);
+        void putShards(int position, Vertex a, Vertex b, Vertex c);
 };
 
 #endif // GLASS_H

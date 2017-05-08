@@ -41,6 +41,21 @@ void Mesh::init(const string& fileName){
     InitMesh(model);
 }
 
+void Mesh::initV(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices){
+    IndexedModel model;
+
+    for(int i=0;i<numVertices; i++){
+        model.positions.push_back(*vertices[i].getPos());
+        model.texCoords.push_back(*vertices[i].getTexCoord());
+    }
+
+    for(int i=0;i<numIndices; i++){
+        model.indices.push_back(indices[i]);
+    }
+
+    InitMesh(model);
+}
+
 Mesh::Mesh(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices){
     IndexedModel model;
 

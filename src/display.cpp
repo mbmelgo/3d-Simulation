@@ -61,6 +61,9 @@ void Display::doMovements(){
     if(m_cameraPos.y<=1.0){
         m_cameraPos.y = 1.0;
     }
+    if(m_cameraPos.x>=19.0){
+        m_cameraPos.x = 19.0;
+    }
 }
 
 bool Display::isStart(){

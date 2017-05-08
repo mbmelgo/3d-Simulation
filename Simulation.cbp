@@ -53,6 +53,7 @@
 		<Unit filename="include/obj_loader.h" />
 		<Unit filename="include/plane.h" />
 		<Unit filename="include/shader.h" />
+		<Unit filename="include/shards.h" />
 		<Unit filename="include/stb_image.h" />
 		<Unit filename="include/texture.h" />
 		<Unit filename="include/transform.h" />
@@ -65,6 +66,7 @@
 		<Unit filename="src/obj_loader.cpp" />
 		<Unit filename="src/plane.cpp" />
 		<Unit filename="src/shader.cpp" />
+		<Unit filename="src/shards.cpp" />
 		<Unit filename="src/stb_image.c">
 			<Option compilerVar="CC" />
 		</Unit>

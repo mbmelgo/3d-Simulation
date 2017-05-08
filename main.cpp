@@ -19,10 +19,8 @@ using namespace std;
 string PATH = "E:/Vincent/4thYear/2ND SEM/CMSC_162/FINAL_PROJECT/Simulation/";
 //string PATH = "C:/Users/MabelMelgo/Desktop/Vincent/CMSC162/3d-Simulation/";
 
-float gravityValue = -9.8f;
 Display display(WIDTH,HEIGHT,"Simulation");
 
-glm::vec3 gravity;
 Glass glass;
 Bullet bullet;
 Plane ground;
@@ -33,12 +31,12 @@ Menu menu[11];
 Camera camera(glm::vec3(0,0,5), 70.0f, (float)WIDTH/(float)HEIGHT, 0.01f, 1000.0f);
 float lowerBoundary = 0.0;
 bool start = true;
+bool hasTarget = false;
 
 void generateGlass(){
-    glass.init(    PATH+"res/obj_files/glass_2.obj",
-                    PATH+"res/shaders/basicShader",
-                    PATH+"res/textures/glass_skin.jpg");
-    glass.setLocation(glm::vec3(20.0,10.0,0.0));
+    glass.init(PATH+"res/shaders/basicShader",
+               PATH+"res/textures/glass_skin.jpg");
+    glass.setTarget(glm::vec3(0.0,0.0,0.0));
 }
 
 void generateBullet(){
@@ -63,12 +61,14 @@ void generateBackground(){
     leftWall.init(  PATH+"res/obj_files/plane_2.obj",
                     PATH+"res/shaders/basicShader",
                     PATH+"res/textures/plane_skin_2.jpeg");
-    leftWall.setPosition(glm::vec3(20.0,10.2,-20.0));
+    leftWall.setPosition(glm::vec3(20.0,5.0,-15.0));
+    leftWall.setScale(glm::vec3(0.5,0.5,0.5));
     leftWall.setDrawCoordinates(false);
     rightWall.init( PATH+"res/obj_files/plane_2.obj",
                     PATH+"res/shaders/basicShader",
                     PATH+"res/textures/plane_skin_2.jpeg");
-    rightWall.setPosition(glm::vec3(20.0,10.2,20.0));
+    rightWall.setPosition(glm::vec3(20.0,5.0,15.0));
+    rightWall.setScale(glm::vec3(0.5,0.5,0.5));
     rightWall.setDrawCoordinates(false);
 }
 
@@ -135,14 +135,16 @@ void init(){
     generateBackground();
     generateMenu();
     generateBullet();
-    generateGlass();
-    gravity = glm::vec3(0.0,gravityValue,0.0);
 }
 
 void startActions(){
-    bullet.applyForce(gravity);
     bullet.draw(camera);
 
+    if (!hasTarget && bullet.hasTarget()){
+        glass.setVelocityIncoming(bullet.getTargetVelocity());
+        glass.setTarget(bullet.getTarget());
+        hasTarget = true;
+    }
     glass.draw(camera);
 
 
@@ -222,6 +224,7 @@ int main(){
         if (display.isStart()){
             if(start){
                 printf("START\n");
+                generateGlass();
                 bullet.initBullet();
                 display.setCamerPosition(glm::vec3(0.0f, 5.0f, 50.0f));
                 start = false;

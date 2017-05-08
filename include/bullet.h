@@ -38,12 +38,17 @@ class Bullet
         float getAngleXY();
         float getAngleXZ();
 
+        glm::vec3 getTarget(){return m_target;}
+        bool hasTarget(){return m_hasTarget;}
+        float getTargetVelocity(){return m_targetVelocity;}
 
     protected:
 
     private:
+        glm::vec3 m_gravity = glm::vec3(0.0,-9.8,0.0);
         glm::vec3 m_velocity;
         glm::vec3 m_force;
+        glm::vec3 m_target;
         float m_mass;
         float m_lowerBoundary;
         float m_speed;
@@ -51,6 +56,8 @@ class Bullet
         float m_angleXZ; //yaw
         float m_deltaTime;
         float m_time;
+        bool m_hasTarget = false;
+        float m_targetVelocity = 0.0;
 
         float m_anglePitch; //pitch
         float m_angleYaw; //yaw

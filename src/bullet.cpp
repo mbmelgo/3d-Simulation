@@ -152,6 +152,7 @@ void Bullet::draw(Camera camera){
     m_shader.Bind();
     m_texture.Bind(0);
     m_shader.Update(m_transform, camera);
+    applyForce(m_gravity);
 
     m_velocity = m_velocity + m_force/m_mass * m_deltaTime;
     glm::vec3 nextPosition = m_transform.getPos() + m_velocity * m_deltaTime;
@@ -172,7 +173,11 @@ void Bullet::draw(Camera camera){
         friction.y = friction.y * 3;
         friction.z = friction.z * 3;
         applyForce(friction);
-//        printf("%f\n",m_velocity.x);
+    }
+    if(m_transform.getPos().x>=20.0 && !m_hasTarget){
+        m_target = glm::vec3(m_transform.getPos().x,m_transform.getPos().y,m_transform.getPos().z);
+        m_targetVelocity = m_velocity.x;
+        m_hasTarget = true;
     }
     m_time = m_time + m_deltaTime;
 }
@@ -184,6 +189,7 @@ void Bullet::init(const string& meshFileName, const string& shaderFileName, cons
     m_transform.setPos(glm::vec3(-10.0,5.0,0.0));
     m_velocity = glm::vec3(0.0,0.0,0.0);
     m_force = glm::vec3(0.0,0.0,0.0);
+    m_target = glm::vec3(0.0,0.0,0.0);
 
     m_mass = 1.0;
     m_lowerBoundary = 0.0;

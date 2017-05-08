@@ -39,6 +39,7 @@ class Mesh
 
         void Draw();
         void init(const string& fileName);
+        void initV(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices);
 
     protected:
 
