@@ -14,122 +14,188 @@ Bullet::~Bullet(){
     //dtor
 }
 
-void Bullet::setTarget(glm::vec3 position){
-    m_target = position;
+void Bullet::setMass(float mass){
+    m_mass = mass;
 }
 
-glm::vec3 Bullet::getTarget(){
-    return m_target;
+void Bullet::setSpeed(float speed){
+    m_speed = speed;
 }
 
-void Bullet::setPosition(glm::vec3 position){
-    m_transform.setPos(position);
-    m_position = position;
+void Bullet::setLowerBoundary(float lowerBoundary){
+    m_lowerBoundary = lowerBoundary;
 }
 
-glm::vec3 Bullet::getPosition(){
-    return m_position;
+void Bullet::setAngleXY(float angleXY){
+    m_transform.setRot(glm::vec3(0.0,0.0,angleXY));
+    m_angleXY = angleXY * 3.141459/180.00;
 }
 
-void Bullet::setVelocity(glm::vec3 velocity){
-    m_velocity = velocity;
+void Bullet::setAngleXZ(float angleXZ){
+    m_transform.setRot(glm::vec3(0.0,angleXZ,0.0));
+    m_angleXZ = angleXZ * 3.141459/180.00;
 }
 
-glm::vec3 Bullet::getVelocity(){
-    return m_velocity;
+float Bullet::getMass(){
+    return m_mass;
 }
 
-void Bullet::setAcceleration(glm::vec3 acceleration){
-    m_acceleration = acceleration;
+float Bullet::getSpeed(){
+    return m_speed;
 }
 
-glm::vec3 Bullet::getAcceleration(){
-    return m_acceleration;
+float Bullet::getLowerBoundary(){
+    return m_lowerBoundary;
 }
 
-void Bullet::setRotation(glm::vec3 rotation){
-    m_transform.setRot(rotation);
-    m_rotation = rotation;
+float Bullet::getAngleXY(){
+    return m_angleXY;
 }
 
-glm::vec3 Bullet::getRotation(){
-    return m_rotation;
+float Bullet::getAngleXZ(){
+    return m_angleXZ;
 }
 
 void Bullet::applyForce(glm::vec3 force){
-    force = force / m_mass;
-    m_acceleration = m_acceleration + force;
+    force =  force / m_mass;
+    m_force = m_force + force;
 }
 
-void Bullet::translate(){
-    m_transform.setPos(m_nextPosition);
+void Bullet::translate(glm::vec3 position){
+    m_transform.setPos(position);
 }
 
-//http://www.euclideanspace.com/maths/geometry/rotations/conversions/angleToEuler/index.htm
-void Bullet::toEuler(glm::vec3 axis,float angle) {
-	float s = sin(angle);
-	float c = cos(angle);
-	float t = 1-c;
-	if ((axis.x*axis.y*t + axis.z*s) > 0.998) { // north pole singularity detected
-		m_angleY = 2*atan2(axis.x*sin(angle/2),cos(angle/2));
-		m_angleX = 2.14/2;
-		m_angleZ = 0;
-		return;
-	}
-	if ((axis.x*axis.y*t + axis.z*s) < -0.998) { // south pole singularity detected
-		m_angleY = -2*atan2(axis.x*sin(angle/2),cos(angle/2));
-		m_angleX = -2.14/2;
-		m_angleZ = 0;
-		return;
-	}
-	m_angleY = atan2(axis.y * s- axis.x * axis.z * t , 1 - (axis.y*axis.y + axis.z*axis.z ) * t);
-	m_angleX = asin(axis.x * axis.y * t + axis.z * s) ;
-	m_angleZ = atan2(axis.x * s - axis.y * axis.z * t , 1 - (axis.x*axis.x + axis.z*axis.z) * t);
+void Bullet::rotate(glm::vec3 rot){
+    if(isnan(rot.x)){
+        rot.x = 0.0;
+    }
+    if(isnan(rot.y)){
+        rot.y = 0.0;
+    }
+    if(isnan(rot.z)){
+        rot.z = 0.0;
+    }
+//    glm::vec3 newRot = glm::vec3(m_transform.getRot().x+rot.x,m_transform.getRot().y+rot.y,m_transform.getRot().z+rot.z);
+    m_transform.setRot(rot);
 }
 
-
-void Bullet::findAngle(){
-   glm::vec3 crossProduct = glm::cross(m_position,m_nextPosition);
-   float dotProduct = (m_nextPosition.x * m_position.x) + (m_nextPosition.y * m_position.y) + (m_nextPosition.z * m_position.z);
-   toEuler(crossProduct,dotProduct);
+void Bullet::initBullet(){
+    m_velocity = glm::vec3(
+                           m_speed * cos(m_angleXY) * cos(m_angleXZ),
+                           m_speed * sin(m_angleXY),
+                           m_speed * cos(m_angleXY) * sin(m_angleXZ)
+                           );
 }
 
-void Bullet::rotate(){
-    findAngle();
-    m_rotation = glm::vec3(m_angleX,m_angleY,m_angleZ);
-    setRotation(m_rotation);
+float Bullet::magnitude(glm::vec3 vect){
+   return sqrt((vect.x * vect.x) + (vect.y * vect.y) + (vect.z * vect.z));
+}
+
+float Bullet::getAngle(glm::vec3 currentPosition, glm::vec3 nextPosition){
+    //Find the scalar/dot product of the provided 2 Vectors
+   float dotProduct = glm::dot(currentPosition, nextPosition);
+   //Find the product of both magnitudes of the vectors then divide dot from it
+   dotProduct = dotProduct / (magnitude(currentPosition) * magnitude(nextPosition));
+   //Get the arc cosin of the angle, you now have your angle in radians
+   float arcAcos = acos(dotProduct);
+   //Convert to degrees by Multiplying the arc cosin by 180/M_PI
+   return arcAcos * 180 / M_PI;
+}
+
+void Bullet::getYawAngle(glm::vec3 nextPosition){
+    m_angleYaw = getAngle(glm::vec3(0.0,0.0,m_transform.getPos().z),glm::vec3(0.0,0.0,nextPosition.z));
+}
+
+void Bullet::getRollAngle(glm::vec3 nextPosition){
+    m_angleRoll = getAngle(glm::vec3(m_transform.getPos().x,0.0,0.0),glm::vec3(nextPosition.x,0.0,0.0));
+}
+
+void Bullet::getPitchAngle(glm::vec3 nextPosition){
+    m_anglePitch = getAngle(glm::vec3(0.0,m_transform.getPos().y,0.0),glm::vec3(0.0,nextPosition.y,0.0));
+}
+
+glm::vec3 Bullet::getRotations(glm::vec3 nextPosition){
+    getYawAngle(nextPosition);
+    getRollAngle(nextPosition);
+    getPitchAngle(nextPosition);
+
+    if(isnan(m_anglePitch)){
+        m_anglePitch = 0.0;
+    }
+    if(isnan(m_angleYaw)){
+        m_angleYaw = 0.0;
+    }
+    if(isnan(m_angleRoll)){
+        m_angleRoll = 0.0;
+    }
+
+//    glm::vec3 currentPosition(m_transform.getPos().x,m_transform.getPos().y,m_transform.getPos().z);
+//
+//    //a==yaw b == pitch y == roll
+//    float x =   (currentPosition.x * (cos(m_angleYaw) * cos(m_anglePitch))) +
+//                (currentPosition.y * ( (cos(m_angleYaw)*sin(m_anglePitch)*sin(m_angleRoll)) - (sin(m_angleYaw)*cos(m_angleRoll)) )) +
+//                (currentPosition.z * ( (cos(m_angleYaw)*sin(m_anglePitch)*cos(m_angleRoll)) + (sin(m_angleYaw)*sin(m_angleRoll)) ));
+//
+//    float y =   (currentPosition.x * (sin(m_angleYaw)*cos(m_anglePitch)) ) +
+//                (currentPosition.y * ( (sin(m_angleYaw)*sin(m_anglePitch)*sin(m_angleRoll)) + (cos(m_angleYaw)*cos(m_angleRoll)) ))+
+//                (currentPosition.z * ( (sin(m_angleYaw)*sin(m_anglePitch)*cos(m_angleRoll)) - (cos(m_angleYaw)*sin(m_angleRoll)) ));
+//
+//    float z =   (currentPosition.x * asin(m_anglePitch)) +
+//                (currentPosition.y * (cos(m_anglePitch)*sin(m_angleRoll))) +
+//                (currentPosition.z * (cos(m_anglePitch)*cos(m_angleRoll)));
+
+    glm::vec3 rot(m_angleRoll,m_angleYaw,m_anglePitch);
+    return rot;
 }
 
 void Bullet::draw(Camera camera){
     m_shader.Bind();
     m_texture.Bind(0);
     m_shader.Update(m_transform, camera);
+    applyForce(m_gravity);
 
-    m_velocity = m_velocity + m_acceleration;
-    m_nextPosition = m_nextPosition + m_velocity;
+    m_velocity = m_velocity + m_force/m_mass * m_deltaTime;
+    glm::vec3 nextPosition = m_transform.getPos() + m_velocity * m_deltaTime;
 
-    if(m_nextPosition.y <= m_lowerBoundary){
+    glm::vec3 rot = getRotations(nextPosition);
+    if(nextPosition.y <= m_lowerBoundary){
         m_velocity.y = 0.0f;
-        m_nextPosition.y = m_lowerBoundary;
+        nextPosition.y = m_lowerBoundary;
     }
-    translate();
-    rotate();
+    translate(nextPosition);
+    rotate(rot);
     m_mesh.Draw();
-    m_acceleration = m_acceleration * 0.0f;
-    m_position = m_nextPosition;
-    if (m_position.y < -10.0){
-        m_position.y = -10.0;
+    m_force = glm::vec3(0.0,0.0,0.0);
+    if (m_transform.getPos().y <= 0.1){
+        m_transform.getPos().y = 0.1;
+        glm::vec3 friction = glm::vec3(m_velocity.x*-1,m_velocity.y,m_velocity.z);
+        friction.x = friction.x * 5;
+        friction.y = friction.y * 5;
+        friction.z = friction.z * 5;
+        applyForce(friction);
     }
+    if(m_transform.getPos().x>=20.0 && !m_hasTarget){
+        m_target = glm::vec3(m_transform.getPos().x,m_transform.getPos().y,m_transform.getPos().z);
+        m_targetVelocity = m_velocity.x;
+        m_hasTarget = true;
+    }
+    m_time = m_time + m_deltaTime;
 }
 
 void Bullet::init(const string& meshFileName, const string& shaderFileName, const string& textureFileName){
     m_mesh.init(meshFileName);
     m_shader.init(shaderFileName);
     m_texture.init(textureFileName);
+    m_transform.setPos(glm::vec3(-10.0,5.0,0.0));
+    m_velocity = glm::vec3(0.0,0.0,0.0);
+    m_force = glm::vec3(0.0,0.0,0.0);
+    m_target = glm::vec3(0.0,0.0,0.0);
 
-    setPosition(glm::vec3(16.0,0.0,0.0));
-    m_nextPosition = glm::vec3(16.0,0.0,0.0);
-    setVelocity(glm::vec3(0.0,0.0,0.0));
-    setAcceleration(glm::vec3(0.0,0.0,0.0));
-    setRotation(glm::vec3(0.0,0.0,0.0));
+    m_mass = 1.0;
+    m_lowerBoundary = 0.0;
+    m_speed = 0.0;
+    m_angleXY = 0.0;
+    m_angleXZ = 0.0;
+    m_time = 0.0;
+    m_deltaTime = 0.01;
 }

@@ -38,7 +38,6 @@
 		</Compiler>
 		<Linker>
 			<Add library="glew32s" />
-			<Add library="freeglut" />
 			<Add library="opengl32" />
 			<Add library="glu32" />
 			<Add library="winmm" />
@@ -48,20 +47,26 @@
 		<Unit filename="include/bullet.h" />
 		<Unit filename="include/camera.h" />
 		<Unit filename="include/display.h" />
+		<Unit filename="include/glass.h" />
+		<Unit filename="include/menu.h" />
 		<Unit filename="include/mesh.h" />
 		<Unit filename="include/obj_loader.h" />
 		<Unit filename="include/plane.h" />
 		<Unit filename="include/shader.h" />
+		<Unit filename="include/shards.h" />
 		<Unit filename="include/stb_image.h" />
 		<Unit filename="include/texture.h" />
 		<Unit filename="include/transform.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/bullet.cpp" />
 		<Unit filename="src/display.cpp" />
+		<Unit filename="src/glass.cpp" />
+		<Unit filename="src/menu.cpp" />
 		<Unit filename="src/mesh.cpp" />
 		<Unit filename="src/obj_loader.cpp" />
 		<Unit filename="src/plane.cpp" />
 		<Unit filename="src/shader.cpp" />
+		<Unit filename="src/shards.cpp" />
 		<Unit filename="src/stb_image.c">
 			<Option compilerVar="CC" />
 		</Unit>
