@@ -47,6 +47,13 @@ class Display
 
         void playGlassBreak(){Mix_PlayChannel(-1,m_glassMusic,0);};
 
+        void setChangedSpeed(bool changed){m_changedSpeed = changed;}
+        bool isChangedSpeed(){return m_changedSpeed;}
+        void setChangedAngle(bool changed){m_changedAngle = changed;}
+        bool isChangedAngle(){return m_changedAngle;}
+        void setChangedMass(bool changed){m_changedMass = changed;}
+        bool isChangedMass(){return m_changedMass;}
+
     protected:
 
     private:
@@ -78,6 +85,9 @@ class Display
         bool m_firstMouse = true;
         bool m_firstKey = true;
         bool m_start = false;
+        bool m_changedSpeed = false;
+        bool m_changedAngle = false;
+        bool m_changedMass = false;
 
 
         float m_speedValue;

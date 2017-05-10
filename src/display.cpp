@@ -80,8 +80,20 @@ void Display::doMovements(){
     if(m_cameraPos.y<=1.0){
         m_cameraPos.y = 1.0;
     }
-    if(m_cameraPos.x>=19.0){
-        m_cameraPos.x = 19.0;
+    if(m_cameraPos.y>=10.0){
+        m_cameraPos.y = 10.0;
+    }
+    if(m_cameraPos.x>=16.0){
+        m_cameraPos.x = 16.0;
+    }
+    if(m_cameraPos.x<=-5.0){
+        m_cameraPos.x = -5.0;
+    }
+    if(m_cameraPos.z>=45.0){
+        m_cameraPos.z = 45.0;
+    }
+    if(m_cameraPos.z<=-15.0){
+        m_cameraPos.z = -15.0;
     }
 }
 
@@ -96,9 +108,13 @@ void Display::startActions(){
             n_isClosed = true;
         } else if(e.type == SDL_KEYDOWN){
             m_firstKey = false;
-            m_keys[e.key.keysym.sym] = true;
+            if (e.key.keysym.sym == SDLK_a || e.key.keysym.sym == SDLK_s || e.key.keysym.sym == SDLK_w || e.key.keysym.sym == SDLK_d){
+                m_keys[e.key.keysym.sym] = true;
+            }
         } else if(e.type == SDL_KEYUP){
-            m_keys[e.key.keysym.sym] = false;
+            if (e.key.keysym.sym == SDLK_a || e.key.keysym.sym == SDLK_s || e.key.keysym.sym == SDLK_w || e.key.keysym.sym == SDLK_d){
+                m_keys[e.key.keysym.sym] = false;
+            }
         } else if( e.type == SDL_MOUSEBUTTONDOWN){
             m_firstX =  e.button.x;
             m_firstY =  e.button.y;
@@ -148,31 +164,37 @@ void Display::menuActions(){
                     Mix_PlayChannel(-1,m_gunMusic,0);
                     break;
                 case SDLK_q:
+                    m_changedSpeed = true;
                     m_speedTimes = m_speedTimes + 0.25;
                     if(m_speedTimes>1.75) m_speedTimes = 1.75;
                     m_speedValue = 2.0 * m_speedTimes;
                     break;
                 case SDLK_a:
+                    m_changedSpeed = true;
                     m_speedTimes = m_speedTimes - 0.25;
                     if(m_speedTimes<1) m_speedTimes = 1.0;
                     m_speedValue = 2.0 * m_speedTimes;
                     break;
                 case SDLK_e:
+                    m_changedAngle = true;
                     m_angleTimes = m_angleTimes + 1.0;
                     if(m_angleTimes>9) m_angleTimes = 9.0;
                     m_angleXYValue = 0.0 + (10 * m_angleTimes);
                     break;
                 case SDLK_d:
+                    m_changedAngle = true;
                     m_angleTimes = m_angleTimes - 1.0;
                     if(m_angleTimes<0) m_angleTimes = 0.0;
                     m_angleXYValue = 0.0 + (10 * m_angleTimes);
                     break;
                 case SDLK_w:
+                    m_changedMass = true;
                     m_massTimes = m_massTimes + 0.25;
                     if(m_massTimes>1.75) m_massTimes = 1.75;
                     m_massValue = 10.0 * m_massTimes;
                     break;
                 case SDLK_s:
+                    m_changedMass = true;
                     m_massTimes = m_massTimes - 0.25;
                     if(m_massTimes<1) m_massTimes = 1.0;
                     m_massValue = 10.0 * m_massTimes;
