@@ -89,8 +89,8 @@ void Display::doMovements(){
     if(m_cameraPos.x<=-5.0){
         m_cameraPos.x = -5.0;
     }
-    if(m_cameraPos.z>=45.0){
-        m_cameraPos.z = 45.0;
+    if(m_cameraPos.z>=40.0){
+        m_cameraPos.z = 40.0;
     }
     if(m_cameraPos.z<=-15.0){
         m_cameraPos.z = -15.0;

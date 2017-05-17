@@ -25,7 +25,9 @@ Glass glass;
 Bullet bullet;
 Plane ground;
 Plane leftWall;
+Plane leftWall2;
 Plane rightWall;
+Plane rightWall2;
 int totalMenuSize = 11;
 Menu menu[11];
 Camera camera(glm::vec3(0,0,5), 70.0f, (float)WIDTH/(float)HEIGHT, 0.01f, 1000.0f);
@@ -70,6 +72,18 @@ void generateBackground(){
     rightWall.setPosition(glm::vec3(20.0,5.0,15.0));
     rightWall.setScale(glm::vec3(0.5,0.5,0.5));
     rightWall.setDrawCoordinates(false);
+    rightWall2.init( PATH+"res/obj_files/plane_2.obj",
+                    PATH+"res/shaders/basicShader",
+                    PATH+"res/textures/plane_skin_2.jpeg");
+    rightWall2.setPosition(glm::vec3(20.0,5.0,30.0));
+    rightWall2.setScale(glm::vec3(0.5,0.5,1.0));
+    rightWall2.setDrawCoordinates(false);
+    leftWall2.init( PATH+"res/obj_files/plane_2.obj",
+                    PATH+"res/shaders/basicShader",
+                    PATH+"res/textures/plane_skin_2.jpeg");
+    leftWall2.setPosition(glm::vec3(20.0,5.0,-30.0));
+    leftWall2.setScale(glm::vec3(0.5,0.5,1.0));
+    leftWall2.setDrawCoordinates(false);
 }
 
 void generateMenu(){
@@ -154,7 +168,9 @@ void startActions(){
 //      WALLS
     ground.draw(camera);
     leftWall.draw(camera);
+    leftWall2.draw(camera);
     rightWall.draw(camera);
+    rightWall2.draw(camera);
 }
 
 void getSpeedTimes(){
