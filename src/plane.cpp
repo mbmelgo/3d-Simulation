@@ -24,15 +24,15 @@ glm::vec3 Plane::getScale(){
     return m_transform.getScale();
 }
 
-Plane::Plane(const string& meshFileName, const string& shaderFileName, const string& textureFileName){
-    m_mesh.init(meshFileName);
+Plane::Plane(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices, const string& shaderFileName, const string& textureFileName){
+    m_mesh.initV(vertices,numVertices,indices,numIndices);
     m_shader.init(shaderFileName);
     m_texture.init(textureFileName);
 }
 
 
-void Plane::init(const string& meshFileName, const string& shaderFileName, const string& textureFileName){
-    m_mesh.init(meshFileName);
+void Plane::init(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices, const string& shaderFileName, const string& textureFileName){
+    m_mesh.initV(vertices,numVertices,indices,numIndices);
     m_shader.init(shaderFileName);
     m_texture.init(textureFileName);
 }

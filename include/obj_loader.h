@@ -5,12 +5,14 @@
 #include <vector>
 #include <string>
 
+// BASIC LOADER FOR THE OBJ FORMAT
+
 struct OBJIndex
 {
     unsigned int vertexIndex;
     unsigned int uvIndex;
     unsigned int normalIndex;
-    
+
     bool operator<(const OBJIndex& r) const { return vertexIndex < r.vertexIndex; }
 };
 
@@ -21,7 +23,7 @@ public:
     std::vector<glm::vec2> texCoords;
     std::vector<glm::vec3> normals;
     std::vector<unsigned int> indices;
-    
+
     void CalcNormals();
 };
 
@@ -34,14 +36,14 @@ public:
     std::vector<glm::vec3> normals;
     bool hasUVs;
     bool hasNormals;
-    
+
     OBJModel(const std::string& fileName);
-    
+
     IndexedModel ToIndexedModel();
 private:
     unsigned int FindLastVertexIndex(const std::vector<OBJIndex*>& indexLookup, const OBJIndex* currentIndex, const IndexedModel& result);
     void CreateOBJFace(const std::string& line);
-    
+
     glm::vec2 ParseOBJVec2(const std::string& line);
     glm::vec3 ParseOBJVec3(const std::string& line);
     OBJIndex ParseOBJIndex(const std::string& token, bool* hasUVs, bool* hasNormals);

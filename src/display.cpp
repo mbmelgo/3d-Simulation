@@ -52,8 +52,8 @@ Display::Display(int width, int height, const string& title, const string& path)
 
     glEnable(GL_DEPTH_TEST);
 
-    glEnable(GL_CULL_FACE);
-    glCullFace(GL_BACK);
+//    glCullFace(GL_BACK);
+//    glEnable(GL_CULL_FACE);
 
 
 }
@@ -65,6 +65,8 @@ Display::~Display(){
 }
 
 void Display::doMovements(){
+    glm::vec3 cameraPosPrev = glm::vec3(m_cameraPos.x, m_cameraPos.y, m_cameraPos.z);
+
     if (m_keys[SDLK_a] && !m_firstKey){
         m_cameraPos -= glm::normalize(glm::cross(m_cameraFront, m_cameraUp)) * m_deltaTime * m_cameraSpeed;
     }
@@ -80,21 +82,28 @@ void Display::doMovements(){
     if(m_cameraPos.y<=1.0){
         m_cameraPos.y = 1.0;
     }
-    if(m_cameraPos.y>=10.0){
-        m_cameraPos.y = 10.0;
+    if(m_cameraPos.y>=9.3){
+        m_cameraPos.y = 9.3;
     }
-    if(m_cameraPos.x>=16.0){
-        m_cameraPos.x = 16.0;
+    if(m_cameraPos.x>=45.0){
+        m_cameraPos.x = 45.0;
     }
-    if(m_cameraPos.x<=-5.0){
-        m_cameraPos.x = -5.0;
+    if(m_cameraPos.x<=-45.0){
+        m_cameraPos.x = -45.0;
     }
-    if(m_cameraPos.z>=40.0){
-        m_cameraPos.z = 40.0;
+    if(m_cameraPos.z>=45.0){
+        m_cameraPos.z = 45.0;
     }
-    if(m_cameraPos.z<=-15.0){
-        m_cameraPos.z = -15.0;
+    if(m_cameraPos.z<=-45.0){
+        m_cameraPos.z = -45.0;
     }
+
+    if(m_cameraPos.z <= 22.9 && m_cameraPos.z >= -22.8 && m_cameraPos.x <= 21 && m_cameraPos.x >= 19){
+        m_cameraPos.x = cameraPosPrev.x;
+        m_cameraPos.z = cameraPosPrev.z;
+    }
+
+//    printf("%f,%f,%f\n",m_cameraPos.x,m_cameraPos.y,m_cameraPos.z);
 }
 
 bool Display::isStart(){
