@@ -184,9 +184,8 @@ void init(){
 void startActions(){
     bullet.draw(camera);
 
-    if (!hasTarget && bullet.hasTarget()){
+    if (!hasTarget && bullet.hasVelocity()){
         glass.setVelocityIncoming(bullet.getTargetVelocity());
-        glass.setTarget(bullet.getTarget());
         hasTarget = true;
         if(glass.canBreak()){
             display.playGlassBreak();
@@ -282,6 +281,7 @@ int main(){
                 printf("START\n");
                 generateGlass();
                 bullet.initBullet();
+                glass.setTarget(bullet.getTarget());
                 display.setCamerPosition(glm::vec3(0.0f, 5.0f, 45.0f));
                 start = false;
             }

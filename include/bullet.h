@@ -40,6 +40,7 @@ class Bullet
 
         glm::vec3 getTarget(){return m_target;}
         bool hasTarget(){return m_hasTarget;}
+        bool hasVelocity(){return m_hasVelocity;}
         float getTargetVelocity(){return m_targetVelocity;}
 
     protected:
@@ -57,6 +58,7 @@ class Bullet
         float m_deltaTime;
         float m_time;
         bool m_hasTarget = false;
+        bool m_hasVelocity = false;
         float m_targetVelocity = 0.0;
 
         float m_anglePitch; //pitch

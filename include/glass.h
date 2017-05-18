@@ -35,6 +35,7 @@ class Glass
         string m_shader;
         string m_texture;
         Shards m_shards[48];
+        Shards m_full;
         glm::vec3 m_target;
         glm::vec3 m_UpperRight = glm::vec3(20.0, 10.0, -10.0);
         glm::vec3 m_UpperLeft = glm::vec3(20.0, 10.0, 10.0);

@@ -85,6 +85,13 @@ void Bullet::initBullet(){
                            m_speed * sin(m_angleXY),
                            m_speed * cos(m_angleXY) * sin(m_angleXZ)
                            );
+
+    // generate target
+    float time = acos(m_angleXY) * (30.0/m_speed);
+    float y = (-9.8 /2) + (m_speed * sin(m_angleXY)) + 5.0;
+    y = y * 10;
+    m_target = glm::vec3(20.0,y,0.0);
+    m_hasTarget = true;
 }
 
 float Bullet::magnitude(glm::vec3 vect){
@@ -174,10 +181,10 @@ void Bullet::draw(Camera camera){
         friction.z = friction.z * 5;
         applyForce(friction);
     }
-    if(m_transform.getPos().x>=20.0 && !m_hasTarget){
-        m_target = glm::vec3(m_transform.getPos().x,m_transform.getPos().y,m_transform.getPos().z);
+    if(m_transform.getPos().x>=20.0 && !m_hasVelocity){
+        //m_target = glm::vec3(m_transform.getPos().x,m_transform.getPos().y,m_transform.getPos().z);
         m_targetVelocity = m_velocity.x;
-        m_hasTarget = true;
+        m_hasVelocity = true;
     }
     m_time = m_time + m_deltaTime;
 }
@@ -189,8 +196,8 @@ void Bullet::init(const string& meshFileName, const string& shaderFileName, cons
     m_transform.setPos(glm::vec3(-10.0,5.0,0.0));
     m_velocity = glm::vec3(0.0,0.0,0.0);
     m_force = glm::vec3(0.0,0.0,0.0);
-    m_target = glm::vec3(0.0,0.0,0.0);
 
+    m_target = glm::vec3(0.0,0.0,0.0);
     m_mass = 1.0;
     m_lowerBoundary = 0.0;
     m_speed = 0.0;
