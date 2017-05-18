@@ -4,6 +4,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtx/transform.hpp>
 
+// INTERFACE FOR MOVING THE OBJECTS IN 3D: SCALRE, ROTATE, TRANSFORM
 class Transform
 {
     public:
@@ -12,16 +13,17 @@ class Transform
             m_rot(rot),
             m_scale(scale){};
 
+        // CONVERT THE ROTATION AND SCALE INTO A 4X4 MATRIX: THE MODEL MATRIX
         inline glm::mat4 getModel() const {
-            glm::mat4 posMatrix = glm::translate(m_pos);
-            glm::mat4 rotXMatrix = glm::rotate(m_rot.x, glm::vec3(1,0,0));
-            glm::mat4 rotYMatrix = glm::rotate(m_rot.y, glm::vec3(0,1,0));
-            glm::mat4 rotZMatrix = glm::rotate(m_rot.z, glm::vec3(0,0,1));
-            glm::mat4 scaleMatrix = glm::scale(m_scale);
+            glm::mat4 posMatrix = glm::translate(m_pos); // GENERATE A 4X4 MATRIX FOR THE TRANSLATION
+            glm::mat4 rotXMatrix = glm::rotate(m_rot.x, glm::vec3(1,0,0)); // GENERATE A 4X4 MATRIX FOR THE X ROTATION
+            glm::mat4 rotYMatrix = glm::rotate(m_rot.y, glm::vec3(0,1,0)); // GENERATE A 4X4 MATRIX FOR THE Y ROTATION
+            glm::mat4 rotZMatrix = glm::rotate(m_rot.z, glm::vec3(0,0,1)); // GENERATE A 4X4 MATRIX FOR THE Z ROTATION
+            glm::mat4 scaleMatrix = glm::scale(m_scale); // GENERATE A 4X4 MATRIX FOR THE SCALING
 
-            glm::mat4 rotMatrix = rotZMatrix * rotYMatrix * rotXMatrix;
+            glm::mat4 rotMatrix = rotZMatrix * rotYMatrix * rotXMatrix; // COMBINE THE ROTATION MATRICES
 
-            return posMatrix * rotMatrix * scaleMatrix;
+            return posMatrix * rotMatrix * scaleMatrix; // RETURN THE MODEL MATRIX BY COMBINING THE SCALE MATRIX, ROTATION MATRIX AND POSITION MATRIX
         }
 
         inline glm::vec3& getPos(){return m_pos;};

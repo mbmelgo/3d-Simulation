@@ -6,12 +6,13 @@
 
 #include "transform.h"
 
+// USED FOR CAMERA AND PERSPECTIVE
 class Camera
 {
     public:
         Camera();
         Camera(const glm::vec3& pos, float fov, float aspect, float zNear, float zFar){
-            m_perspective = glm::perspective(fov, aspect, zNear, zFar);
+            m_perspective = glm::perspective(fov, aspect, zNear, zFar); //GENERATE THE PERSPECTIVE MATRIX
             m_position = pos;
             m_forward = glm::vec3(0,0,1);
             m_up = glm::vec3(0,1,0);

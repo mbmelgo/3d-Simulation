@@ -134,7 +134,7 @@ void Glass::setTarget(glm::vec3 target){
     m_target = target;
     if( m_canBreak && target.x >= m_LowerLeft.x &&
         target.y <= m_UpperRight.y && target.y >= m_LowerRight.y &&
-        target.z <= m_UpperLeft.z && target.x >= m_UpperRight.z){
+        target.z <= m_UpperLeft.z && target.z >= m_UpperRight.z){
         m_shards[0].setStop(false);
         m_breaks = true;
         generateShards();

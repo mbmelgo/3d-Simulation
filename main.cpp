@@ -18,6 +18,7 @@ using namespace std;
 
 string PATH = "E:/Vincent/4thYear/2ND SEM/CMSC_162/FINAL_PROJECT/Simulation/";
 //string PATH = "C:/Users/MabelMelgo/Desktop/Vincent/CMSC162/3d-Simulation/";
+//string PATH = "./";
 
 Display display(WIDTH,HEIGHT,"Simulation", PATH);
 
@@ -52,23 +53,66 @@ void generateBullet(){
 }
 
 void generateBackground(){
-    ground.init(    PATH+"res/obj_files/plane.obj",
-                    PATH+"res/shaders/basicShader",
-                    PATH+"res/textures/plane_skin.jpg");
-    ground.setPosition(glm::vec3(0.0,0.0,0.0));
-    ground.setScale(glm::vec3(5.0,0.0,5.0));
+    Vertex vertices[] = {   Vertex(glm::vec3(50.0,0.0,-50.0),glm::vec2(0.0,1.0)),
+                            Vertex(glm::vec3(-50.0,0.0,50.0),glm::vec2(0.0,0.0)),
+                            Vertex(glm::vec3(50.0,0.0,50.0),glm::vec2(1.0,0.0)),
+                            Vertex(glm::vec3(50.0,0.0,-50.0),glm::vec2(0.0,1.0)),
+                            Vertex(glm::vec3(-50.0,0.0,50.0),glm::vec2(0.0,0.0)),
+                            Vertex(glm::vec3(-50.0,0.0,-50.0),glm::vec2(1.0,1.0))
+                            };
+    unsigned int indices[] = { 0,1,2,3,4,5 };
+    ground.init(vertices, sizeof(vertices)/sizeof(vertices[0]), indices, sizeof(indices)/sizeof(indices[0]), PATH+"res/shaders/basicShader", PATH+"res/textures/plane_skin.jpg");
+    ground.setPosition(glm::vec3(0.0,0.1,0.0));
     ground.setDrawCoordinates(true);
-    leftWall.init(  PATH+"res/obj_files/plane_2.obj",
-                    PATH+"res/shaders/basicShader",
-                    PATH+"res/textures/plane_skin_2.jpeg");
+
+    glm::vec3 ur = glm::vec3(0.0,1.0,-1.0);
+    glm::vec3 ul = glm::vec3(0.0,1.0,1.0);
+    glm::vec3 lr = glm::vec3(0.0,-1.0,-1.0);
+    glm::vec3 ll = glm::vec3(0.0,-1.0,1.0);
+    glm::vec3 a = glm::vec3(0.2,1.0,-1.0);
+    glm::vec3 b = glm::vec3(0.2,1.0,1.0);
+    glm::vec3 c = glm::vec3(0.2,-1.0,-1.0);
+    glm::vec3 d = glm::vec3(0.2,-1.0,1.0);
+
+    Vertex vertices2[] = {  Vertex(ur,glm::vec2(0.0,0.0)),
+                            Vertex(ll,glm::vec2(1.0,1.0)),
+                            Vertex(ul,glm::vec2(0.0,1.0)),
+                            Vertex(ur,glm::vec2(0.0,0.0)),
+                            Vertex(lr,glm::vec2(1.0,0.0)),
+                            Vertex(ll,glm::vec2(1.0,1.0)),
+                            Vertex(ur,glm::vec2(0.0,0.0)),
+                            Vertex(b,glm::vec2(1.0,1.0)),
+                            Vertex(ul,glm::vec2(0.0,1.0)),
+                            Vertex(ur,glm::vec2(0.0,0.0)),
+                            Vertex(b,glm::vec2(1.0,0.0)),
+                            Vertex(a,glm::vec2(1.0,1.0)),
+                            Vertex(a,glm::vec2(0.0,0.0)),
+                            Vertex(d,glm::vec2(1.0,0.0)),
+                            Vertex(b,glm::vec2(1.0,1.0)),
+                            Vertex(a,glm::vec2(0.0,0.0)),
+                            Vertex(c,glm::vec2(1.0,0.0)),
+                            Vertex(d,glm::vec2(1.0,1.0)),
+                            Vertex(ul,glm::vec2(0.0,0.0)),
+                            Vertex(ll,glm::vec2(1.0,0.0)),
+                            Vertex(d,glm::vec2(1.0,1.0)),
+                            Vertex(ul,glm::vec2(0.0,0.0)),
+                            Vertex(d,glm::vec2(1.0,0.0)),
+                            Vertex(b,glm::vec2(1.0,1.0)),
+                            Vertex(ur,glm::vec2(0.0,0.0)),
+                            Vertex(lr,glm::vec2(1.0,0.0)),
+                            Vertex(c,glm::vec2(1.0,1.0)),
+                            Vertex(ur,glm::vec2(0.0,0.0)),
+                            Vertex(c,glm::vec2(1.0,0.0)),
+                            Vertex(a,glm::vec2(1.0,1.0))
+                            };
+    unsigned int indices2[] = { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29 };
+    leftWall.init(vertices2, sizeof(vertices2)/sizeof(vertices2[0]), indices2, sizeof(indices2)/sizeof(indices2[0]), PATH+"res/shaders/basicShader", PATH+"res/textures/plane_skin_3.jpg");
     leftWall.setPosition(glm::vec3(20.0,5.0,-15.0));
-    leftWall.setScale(glm::vec3(0.5,0.5,0.5));
+    leftWall.setScale(glm::vec3(1,5,5));
     leftWall.setDrawCoordinates(false);
-    rightWall.init( PATH+"res/obj_files/plane_2.obj",
-                    PATH+"res/shaders/basicShader",
-                    PATH+"res/textures/plane_skin_2.jpeg");
+    rightWall.init(vertices2, sizeof(vertices2)/sizeof(vertices2[0]), indices2, sizeof(indices2)/sizeof(indices2[0]), PATH+"res/shaders/basicShader", PATH+"res/textures/plane_skin_3.jpg");
     rightWall.setPosition(glm::vec3(20.0,5.0,15.0));
-    rightWall.setScale(glm::vec3(0.5,0.5,0.5));
+    rightWall.setScale(glm::vec3(1,5,5));
     rightWall.setDrawCoordinates(false);
 }
 
@@ -158,51 +202,60 @@ void startActions(){
 }
 
 void getSpeedTimes(){
-    if(display.getSpeedTimes()==1.0){
+    bool changed = display.isChangedSpeed();
+    float sp = display.getSpeedTimes();
+    if(changed && sp==1.0){
         menu[7].changeTexture(PATH+"res/textures/menu/1x.png");
-    } else if(display.getSpeedTimes()==1.25){
+    } else if(changed && sp==1.25){
         menu[7].changeTexture(PATH+"res/textures/menu/2x.png");
-    } else if(display.getSpeedTimes()==1.50){
+    } else if(changed && sp==1.50){
         menu[7].changeTexture(PATH+"res/textures/menu/3x.png");
-    } else if(display.getSpeedTimes()==1.75){
+    } else if(changed && sp==1.75){
         menu[7].changeTexture(PATH+"res/textures/menu/4x.png");
     }
+    display.setChangedSpeed(false);
 }
 
 void getAngleTimes(){
-    if(display.getAngleTimes()==0){
+    bool changed = display.isChangedAngle();
+    float angleTimes = display.getAngleTimes();
+    if(changed && angleTimes==0){
         menu[9].changeTexture(PATH+"res/textures/menu/0d.png");
-    } else if (display.getAngleTimes()==1){
+    } else if (changed && angleTimes==1){
         menu[9].changeTexture(PATH+"res/textures/menu/10d.png");
-    } else if (display.getAngleTimes()==2){
+    } else if (changed && angleTimes==2){
         menu[9].changeTexture(PATH+"res/textures/menu/20d.png");
-    } else if (display.getAngleTimes()==3){
+    } else if (changed && angleTimes==3){
         menu[9].changeTexture(PATH+"res/textures/menu/30d.png");
-    } else if (display.getAngleTimes()==4){
+    } else if (changed && angleTimes==4){
         menu[9].changeTexture(PATH+"res/textures/menu/40d.png");
-    } else if (display.getAngleTimes()==5){
+    } else if (changed && angleTimes==5){
         menu[9].changeTexture(PATH+"res/textures/menu/50d.png");
-    } else if (display.getAngleTimes()==6){
+    } else if (changed && angleTimes==6){
         menu[9].changeTexture(PATH+"res/textures/menu/60d.png");
-    } else if (display.getAngleTimes()==7){
+    } else if (changed && angleTimes==7){
         menu[9].changeTexture(PATH+"res/textures/menu/70d.png");
-    } else if (display.getAngleTimes()==8){
+    } else if (changed && angleTimes==8){
         menu[9].changeTexture(PATH+"res/textures/menu/80d.png");
-    } else if (display.getAngleTimes()==9){
+    } else if (changed && angleTimes==9){
         menu[9].changeTexture(PATH+"res/textures/menu/90d.png");
     }
+    display.setChangedAngle(false);
 }
 
 void getMassTimes(){
-    if(display.getMassTimes()==1.0){
+    bool changed = display.isChangedMass();
+    float massTimes = display.getMassTimes();
+    if(changed && massTimes==1.0){
         menu[8].changeTexture(PATH+"res/textures/menu/1x.png");
-    } else if(display.getMassTimes()==1.25){
+    } else if(changed && massTimes==1.25){
         menu[8].changeTexture(PATH+"res/textures/menu/2x.png");
-    } else if(display.getMassTimes()==1.5){
+    } else if(changed && massTimes==1.5){
         menu[8].changeTexture(PATH+"res/textures/menu/3x.png");
-    } else if(display.getMassTimes()==1.75){
+    } else if(changed && massTimes==1.75){
         menu[8].changeTexture(PATH+"res/textures/menu/4x.png");
     }
+    display.setChangedMass(false);
 }
 
 void menuActions(){
@@ -229,7 +282,7 @@ int main(){
                 printf("START\n");
                 generateGlass();
                 bullet.initBullet();
-                display.setCamerPosition(glm::vec3(0.0f, 5.0f, 50.0f));
+                display.setCamerPosition(glm::vec3(0.0f, 5.0f, 45.0f));
                 start = false;
             }
             startActions();

@@ -14,10 +14,10 @@ class Plane
 {
     public:
         Plane();
-        Plane(const string& meshFileName, const string& shaderFileName, const string& textureFileName);
+        Plane(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices, const string& shaderFileName, const string& textureFileName);
         virtual ~Plane();
 
-        void init(const string& meshFileName, const string& shaderFileName, const string& textureFileName);
+        void init(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices, const string& shaderFileName, const string& textureFileName);
         void draw(Camera camera);
 
         void setPosition(glm::vec3 position);

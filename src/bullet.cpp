@@ -144,7 +144,7 @@ glm::vec3 Bullet::getRotations(glm::vec3 nextPosition){
 //                (currentPosition.y * (cos(m_anglePitch)*sin(m_angleRoll))) +
 //                (currentPosition.z * (cos(m_anglePitch)*cos(m_angleRoll)));
 
-    glm::vec3 rot(m_angleRoll,m_angleYaw,m_anglePitch);
+    glm::vec3 rot(m_angleRoll,m_anglePitch,m_angleYaw);
     return rot;
 }
 
