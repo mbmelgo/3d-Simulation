@@ -132,23 +132,24 @@ void Glass::generateShards(){
 
 void Glass::setTarget(glm::vec3 target){
     m_target = target;
-    if( target.x >= m_LowerLeft.x &&
+    if( m_canBreak && target.x >= m_LowerLeft.x &&
         target.y <= m_UpperRight.y && target.y >= m_LowerRight.y &&
         target.z <= m_UpperLeft.z && target.z >= m_UpperRight.z){
         m_shards[0].setStop(false);
         m_breaks = true;
         generateShards();
+    } else {
+         Vertex vertices[] = {  Vertex(m_UpperRight,glm::vec2(0.0,1.0)),
+                                Vertex(m_LowerRight,glm::vec2(0.0,0.0)),
+                                Vertex(m_LowerLeft,glm::vec2(1.0,0.0)),
+                                Vertex(m_UpperRight,glm::vec2(0.0,1.0)),
+                                Vertex(m_LowerLeft,glm::vec2(1.0,0.0)),
+                                Vertex(m_UpperLeft,glm::vec2(1.0,1.0))
+                            };
+        unsigned int indices[] = { 0,1,2,3,4,5 };
+        m_shards[0].init(vertices, sizeof(vertices)/sizeof(vertices[0]), indices, sizeof(indices)/sizeof(indices[0]), m_shader, m_texture, 100.0);
+        m_shards[0].setStop(true);
     }
-    Vertex vertices[] = {  Vertex(m_UpperRight,glm::vec2(0.0,1.0)),
-                            Vertex(m_LowerRight,glm::vec2(0.0,0.0)),
-                            Vertex(m_LowerLeft,glm::vec2(1.0,0.0)),
-                            Vertex(m_UpperRight,glm::vec2(0.0,1.0)),
-                            Vertex(m_LowerLeft,glm::vec2(1.0,0.0)),
-                            Vertex(m_UpperLeft,glm::vec2(1.0,1.0))
-                        };
-    unsigned int indices[] = { 0,1,2,3,4,5 };
-    m_full.init(vertices, sizeof(vertices)/sizeof(vertices[0]), indices, sizeof(indices)/sizeof(indices[0]), m_shader, m_texture, 100.0);
-    m_full.setStop(true);
 }
 
 glm::vec3 Glass::getTarget(){
@@ -161,7 +162,7 @@ void Glass::draw(Camera camera){
             m_shards[i].draw(camera);
         }
     } else {
-        m_full.draw(camera);
+        m_shards[0].draw(camera);
     }
 }
 
