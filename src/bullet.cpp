@@ -169,15 +169,20 @@ void Bullet::draw(Camera camera){
     if (m_transform.getPos().y <= 0.1){
         m_transform.getPos().y = 0.1;
         glm::vec3 friction = glm::vec3(m_velocity.x*-1,m_velocity.y,m_velocity.z);
-        friction.x = friction.x * 5;
-        friction.y = friction.y * 5;
-        friction.z = friction.z * 5;
+        friction.x = friction.x * m_frictionConstant;
+        friction.y = friction.y * m_frictionConstant;
+        friction.z = friction.z * m_frictionConstant;
         applyForce(friction);
     }
-    if(m_transform.getPos().x>=20.0 && !m_hasTarget){
+    if(m_transform.getPos().x>=19.65 && !m_hasTarget){
         m_target = glm::vec3(m_transform.getPos().x,m_transform.getPos().y,m_transform.getPos().z);
-        m_targetVelocity = m_velocity.x;
+        m_targetVelocity = m_velocity;
         m_hasTarget = true;
+        if (m_velocity.x < m_velocityLimit && m_target.x >= 19.65 &&
+            m_target.y <= m_UpperRight.y && m_target.y >= m_LowerRight.y &&
+            m_target.z <= m_UpperLeft.z && m_target.z >= m_UpperRight.z){
+            m_velocity.x = 0.0;
+        }
     }
     m_time = m_time + m_deltaTime;
 }

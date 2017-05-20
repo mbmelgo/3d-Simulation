@@ -40,7 +40,7 @@ class Bullet
 
         glm::vec3 getTarget(){return m_target;}
         bool hasTarget(){return m_hasTarget;}
-        float getTargetVelocity(){return m_targetVelocity;}
+        glm::vec3 getTargetVelocity(){return m_targetVelocity;}
 
     protected:
 
@@ -49,6 +49,10 @@ class Bullet
         glm::vec3 m_velocity;
         glm::vec3 m_force;
         glm::vec3 m_target;
+        glm::vec3 m_UpperRight = glm::vec3(20.0, 10.0, -10.0);
+        glm::vec3 m_UpperLeft = glm::vec3(20.0, 10.0, 10.0);
+        glm::vec3 m_LowerRight = glm::vec3(20.0, 0.0, -10.0);
+        glm::vec3 m_LowerLeft = glm::vec3(20.0, 0.0, 10.0);
         float m_mass;
         float m_lowerBoundary;
         float m_speed;
@@ -57,11 +61,12 @@ class Bullet
         float m_deltaTime;
         float m_time;
         bool m_hasTarget = false;
-        float m_targetVelocity = 0.0;
-
+        glm::vec3 m_targetVelocity = glm::vec3(0.0,0.0,0.0);
         float m_anglePitch; //pitch
         float m_angleYaw; //yaw
         float m_angleRoll; //roll
+        float m_velocityLimit = 1.8;
+        float m_frictionConstant = 5.0;
 
         Mesh m_mesh;
         Shader m_shader;
